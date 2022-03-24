@@ -10,9 +10,9 @@
     </parent>
     <groupId>xyz.lidaning</groupId>
     <artifactId>api</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>lidaning-api</name>
-    <description>Demo project for Spring Boot</description>
+    <version>0.0.1</version>
+    <name>api</name>
+    <description>a common api</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -47,5 +47,23 @@
 
     </dependencies>
 
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/relidaning/api.git</connection>
+        <developerConnection>scm:git:https://github.com/relidaning/api.git</developerConnection>
+        <url>git:https://github.com/relidaning/api.git</url>
+    </scm>
+    <developers>
+        <developer>
+            <name>lidaning</name>
+            <email>453882101@qq.com</email>
+            <organization>lidaning</organization>
+        </developer>
+    </developers>
 
 </project>
