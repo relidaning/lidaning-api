@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.lidaning.api.jxc.mapper.JxcTrdLomainMapper">
+
+    <resultMap type="JxcTrdLomain" id="JxcTrdLomainResult">
+        <result property="lono"    column="lono"    />
+        <result property="entertime"    column="entertime"    />
+        <result property="result"    column="result"    />
+        <result property="remark"    column="remark"    />
+        <result property="totalamt"    column="totalamt"    />
+        <result property="chkstate"    column="chkstate"    />
+        <result property="makerid"    column="makerid"    />
+        <result property="makername"    column="makername"    />
+        <result property="auditorid"    column="auditorid"    />
+        <result property="auditorname"    column="auditorname"    />
+        <result property="firstchktime"    column="firstchktime"    />
+        <result property="adjsubmittime"    column="adjsubmittime"    />
+        <result property="maketime"    column="maketime"    />
+        <result property="rptfilename"    column="rptfilename"    />
+        <result property="rptbeforestatus"    column="rptbeforestatus"    />
+        <result property="rptstatus"    column="rptstatus"    />
+        <result property="isbuildmcdfile"    column="isbuildmcdfile"    />
+        <result property="ismoncode"    column="ismoncode"    />
+        <result property="destroyexecutor"    column="destroyexecutor"    />
+        <result property="destroyexecutornum"    column="destroyexecutornum"    />
+        <result property="destroysupervisor"    column="destroysupervisor"    />
+        <result property="destroysupervisornum"    column="destroysupervisornum"    />
+        <result property="destroyreason"    column="destroyreason"    />
+        <result property="id"    column="id"    />
+        <result property="synctime"    column="synctime"    />
+        <result property="substatus"    column="substatus"    />
+        <result property="failreason"    column="failreason"    />
+        <result property="corpid"    column="corpid"    />
+    </resultMap>
+
+    <sql id="selectJxcTrdLomainVo">
+        select lono, entertime, result, remark, totalamt, chkstate, makerid, makername, auditorid, auditorname, firstchktime, adjsubmittime, maketime, rptfilename, rptbeforestatus, rptstatus, isbuildmcdfile, ismoncode, destroyexecutor, destroyexecutornum, destroysupervisor, destroysupervisornum, destroyreason, id, synctime, substatus, failreason, corpid from jxc_trd_lomain
+    </sql>
+
+    <select id="selectJxcTrdLomainList" parameterType="JxcTrdLomain" resultMap="JxcTrdLomainResult">
+        <include refid="selectJxcTrdLomainVo"/>
+        <where>
+            <if test="lono != null  and lono != ''"> and lono = #{lono}</if>
+            <if test="entertime != null "> and entertime = #{entertime}</if>
+            <if test="result != null  and result != ''"> and result = #{result}</if>
+            <if test="totalamt != null "> and totalamt = #{totalamt}</if>
+            <if test="chkstate != null "> and chkstate = #{chkstate}</if>
+            <if test="makerid != null "> and makerid = #{makerid}</if>
+            <if test="makername != null  and makername != ''">
+                 AND makername like concat(concat('%', #{makername}), '%')
+            </if>
+            <if test="auditorid != null "> and auditorid = #{auditorid}</if>
+            <if test="auditorname != null  and auditorname != ''">
+                 AND auditorname like concat(concat('%', #{auditorname}), '%')
+            </if>
+            <if test="firstchktime != null "> and firstchktime = #{firstchktime}</if>
+            <if test="adjsubmittime != null "> and adjsubmittime = #{adjsubmittime}</if>
+            <if test="maketime != null "> and maketime = #{maketime}</if>
+            <if test="rptfilename != null  and rptfilename != ''">
+                 AND rptfilename like concat(concat('%', #{rptfilename}), '%')
+            </if>
+            <if test="rptbeforestatus != null "> and rptbeforestatus = #{rptbeforestatus}</if>
+            <if test="rptstatus != null "> and rptstatus = #{rptstatus}</if>
+            <if test="isbuildmcdfile != null "> and isbuildmcdfile = #{isbuildmcdfile}</if>
+            <if test="ismoncode != null "> and ismoncode = #{ismoncode}</if>
+            <if test="destroyexecutor != null  and destroyexecutor != ''"> and destroyexecutor = #{destroyexecutor}</if>
+            <if test="destroyexecutornum != null  and destroyexecutornum != ''"> and destroyexecutornum = #{destroyexecutornum}</if>
+            <if test="destroysupervisor != null  and destroysupervisor != ''"> and destroysupervisor = #{destroysupervisor}</if>
+            <if test="destroysupervisornum != null  and destroysupervisornum != ''"> and destroysupervisornum = #{destroysupervisornum}</if>
+            <if test="destroyreason != null "> and destroyreason = #{destroyreason}</if>
+            <if test="synctime != null "> and synctime = #{synctime}</if>
+            <if test="substatus != null  and substatus != ''"> and substatus = #{substatus}</if>
+            <if test="failreason != null  and failreason != ''"> and failreason = #{failreason}</if>
+            <if test="corpid != null  and corpid != ''"> and corpid = #{corpid}</if>
+            <if test="whereCouse != null  and whereCouse != ''"> and ${whereCouse} </if>
+        </where>
+    </select>
+
+    <select id="selectJxcTrdLomainById" parameterType="String" resultMap="JxcTrdLomainResult">
+        <include refid="selectJxcTrdLomainVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertJxcTrdLomain" parameterType="JxcTrdLomain">
+        insert into jxc_trd_lomain
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="lono != null and lono != ''">lono,</if>
+            <if test="entertime != null">entertime,</if>
+            <if test="result != null">result,</if>
+            <if test="remark != null">remark,</if>
+            <if test="totalamt != null">totalamt,</if>
+            <if test="chkstate != null">chkstate,</if>
+            <if test="makerid != null">makerid,</if>
+            <if test="makername != null">makername,</if>
+            <if test="auditorid != null">auditorid,</if>
+            <if test="auditorname != null">auditorname,</if>
+            <if test="firstchktime != null">firstchktime,</if>
+            <if test="adjsubmittime != null">adjsubmittime,</if>
+            <if test="maketime != null">maketime,</if>
+            <if test="rptfilename != null">rptfilename,</if>
+            <if test="rptbeforestatus != null">rptbeforestatus,</if>
+            <if test="rptstatus != null">rptstatus,</if>
+            <if test="isbuildmcdfile != null">isbuildmcdfile,</if>
+            <if test="ismoncode != null">ismoncode,</if>
+            <if test="destroyexecutor != null">destroyexecutor,</if>
+            <if test="destroyexecutornum != null">destroyexecutornum,</if>
+            <if test="destroysupervisor != null">destroysupervisor,</if>
+            <if test="destroysupervisornum != null">destroysupervisornum,</if>
+            <if test="destroyreason != null">destroyreason,</if>
+            <if test="id != null">id,</if>
+            <if test="synctime != null">synctime,</if>
+            <if test="substatus != null">substatus,</if>
+            <if test="failreason != null">failreason,</if>
+            <if test="corpid != null">corpid,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="lono != null and lono != ''">#{lono},</if>
+            <if test="entertime != null">#{entertime},</if>
+            <if test="result != null">#{result},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="totalamt != null">#{totalamt},</if>
+            <if test="chkstate != null">#{chkstate},</if>
+            <if test="makerid != null">#{makerid},</if>
+            <if test="makername != null">#{makername},</if>
+            <if test="auditorid != null">#{auditorid},</if>
+            <if test="auditorname != null">#{auditorname},</if>
+            <if test="firstchktime != null">#{firstchktime},</if>
+            <if test="adjsubmittime != null">#{adjsubmittime},</if>
+            <if test="maketime != null">#{maketime},</if>
+            <if test="rptfilename != null">#{rptfilename},</if>
+            <if test="rptbeforestatus != null">#{rptbeforestatus},</if>
+            <if test="rptstatus != null">#{rptstatus},</if>
+            <if test="isbuildmcdfile != null">#{isbuildmcdfile},</if>
+            <if test="ismoncode != null">#{ismoncode},</if>
+            <if test="destroyexecutor != null">#{destroyexecutor},</if>
+            <if test="destroyexecutornum != null">#{destroyexecutornum},</if>
+            <if test="destroysupervisor != null">#{destroysupervisor},</if>
+            <if test="destroysupervisornum != null">#{destroysupervisornum},</if>
+            <if test="destroyreason != null">#{destroyreason},</if>
+            <if test="id != null">#{id},</if>
+            <if test="synctime != null">#{synctime},</if>
+            <if test="substatus != null">#{substatus},</if>
+            <if test="failreason != null">#{failreason},</if>
+            <if test="corpid != null">#{corpid},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJxcTrdLomain" parameterType="JxcTrdLomain">
+        update jxc_trd_lomain
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="lono != null and lono != ''">lono = #{lono},</if>
+            <if test="entertime != null">entertime = #{entertime},</if>
+            <if test="result != null">result = #{result},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="totalamt != null">totalamt = #{totalamt},</if>
+            <if test="chkstate != null">chkstate = #{chkstate},</if>
+            <if test="makerid != null">makerid = #{makerid},</if>
+            <if test="makername != null">makername = #{makername},</if>
+            <if test="auditorid != null">auditorid = #{auditorid},</if>
+            <if test="auditorname != null">auditorname = #{auditorname},</if>
+            <if test="firstchktime != null">firstchktime = #{firstchktime},</if>
+            <if test="adjsubmittime != null">adjsubmittime = #{adjsubmittime},</if>
+            <if test="maketime != null">maketime = #{maketime},</if>
+            <if test="rptfilename != null">rptfilename = #{rptfilename},</if>
+            <if test="rptbeforestatus != null">rptbeforestatus = #{rptbeforestatus},</if>
+            <if test="rptstatus != null">rptstatus = #{rptstatus},</if>
+            <if test="isbuildmcdfile != null">isbuildmcdfile = #{isbuildmcdfile},</if>
+            <if test="ismoncode != null">ismoncode = #{ismoncode},</if>
+            <if test="destroyexecutor != null">destroyexecutor = #{destroyexecutor},</if>
+            <if test="destroyexecutornum != null">destroyexecutornum = #{destroyexecutornum},</if>
+            <if test="destroysupervisor != null">destroysupervisor = #{destroysupervisor},</if>
+            <if test="destroysupervisornum != null">destroysupervisornum = #{destroysupervisornum},</if>
+            <if test="destroyreason != null">destroyreason = #{destroyreason},</if>
+            <if test="synctime != null">synctime = #{synctime},</if>
+            <if test="substatus != null">substatus = #{substatus},</if>
+            <if test="failreason != null">failreason = #{failreason},</if>
+            <if test="corpid != null">corpid = #{corpid},</if>
+        </trim>
+        where id = #{id}
+    </update>
+    <update id="updateJxcTrdLomainByPrimaryKey" parameterType="JxcTrdLomain">
+        update jxc_trd_lomain set
+           lono = #{lono},
+           entertime = #{entertime},
+           result = #{result},
+           remark = #{remark},
+           totalamt = #{totalamt},
+           chkstate = #{chkstate},
+           makerid = #{makerid},
+           makername = #{makername},
+           auditorid = #{auditorid},
+           auditorname = #{auditorname},
+           firstchktime = #{firstchktime},
+           adjsubmittime = #{adjsubmittime},
+           maketime = #{maketime},
+           rptfilename = #{rptfilename},
+           rptbeforestatus = #{rptbeforestatus},
+           rptstatus = #{rptstatus},
+           isbuildmcdfile = #{isbuildmcdfile},
+           ismoncode = #{ismoncode},
+           destroyexecutor = #{destroyexecutor},
+           destroyexecutornum = #{destroyexecutornum},
+           destroysupervisor = #{destroysupervisor},
+           destroysupervisornum = #{destroysupervisornum},
+           destroyreason = #{destroyreason},
+           synctime = #{synctime},
+           substatus = #{substatus},
+           failreason = #{failreason},
+           corpid = #{corpid}
+        where id = #{id}
+    </update>
+    <delete id="deleteJxcTrdLomainById" parameterType="String">
+        delete from jxc_trd_lomain where id = #{id}
+    </delete>
+
+    <delete id="deleteJxcTrdLomainByIds" parameterType="String">
+        delete from jxc_trd_lomain where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="selectJxcTrdLomainCount" parameterType="JxcTrdLomain" resultType="java.lang.Integer">
+        select count(1) from jxc_trd_lomain
+        <where>
+            <if test="lono != null  and lono != ''"> and lono = #{lono}</if>
+            <if test="entertime != null "> and entertime = #{entertime}</if>
+            <if test="result != null  and result != ''"> and result = #{result}</if>
+            <if test="totalamt != null "> and totalamt = #{totalamt}</if>
+            <if test="chkstate != null "> and chkstate = #{chkstate}</if>
+            <if test="makerid != null "> and makerid = #{makerid}</if>
+            <if test="makername != null  and makername != ''">
+                AND makername like concat(concat('%', #{makername}), '%')
+            </if>
+            <if test="auditorid != null "> and auditorid = #{auditorid}</if>
+            <if test="auditorname != null  and auditorname != ''">
+                AND auditorname like concat(concat('%', #{auditorname}), '%')
+            </if>
+            <if test="firstchktime != null "> and firstchktime = #{firstchktime}</if>
+            <if test="adjsubmittime != null "> and adjsubmittime = #{adjsubmittime}</if>
+            <if test="maketime != null "> and maketime = #{maketime}</if>
+            <if test="rptfilename != null  and rptfilename != ''">
+                AND rptfilename like concat(concat('%', #{rptfilename}), '%')
+            </if>
+            <if test="rptbeforestatus != null "> and rptbeforestatus = #{rptbeforestatus}</if>
+            <if test="rptstatus != null "> and rptstatus = #{rptstatus}</if>
+            <if test="isbuildmcdfile != null "> and isbuildmcdfile = #{isbuildmcdfile}</if>
+            <if test="ismoncode != null "> and ismoncode = #{ismoncode}</if>
+            <if test="destroyexecutor != null  and destroyexecutor != ''"> and destroyexecutor = #{destroyexecutor}</if>
+            <if test="destroyexecutornum != null  and destroyexecutornum != ''"> and destroyexecutornum = #{destroyexecutornum}</if>
+            <if test="destroysupervisor != null  and destroysupervisor != ''"> and destroysupervisor = #{destroysupervisor}</if>
+            <if test="destroysupervisornum != null  and destroysupervisornum != ''"> and destroysupervisornum = #{destroysupervisornum}</if>
+            <if test="destroyreason != null "> and destroyreason = #{destroyreason}</if>
+            <if test="synctime != null "> and synctime = #{synctime}</if>
+            <if test="substatus != null  and substatus != ''"> and substatus = #{substatus}</if>
+            <if test="failreason != null  and failreason != ''"> and failreason = #{failreason}</if>
+            <if test="corpid != null  and corpid != ''"> and corpid = #{corpid}</if>
+        </where>
+    </select>
+
+</mapper>

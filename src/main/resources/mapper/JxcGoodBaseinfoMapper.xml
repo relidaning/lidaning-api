@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.lidaning.api.jxc.mapper.JxcGoodBaseinfoMapper">
+
+    <resultMap type="JxcGoodBaseinfo" id="JxcGoodBaseinfoResult">
+        <result property="goodcode"    column="goodcode"    />
+        <result property="goodstdcode"    column="goodstdcode"    />
+        <result property="gbcode"    column="gbcode"    />
+        <result property="goodtype"    column="goodtype"    />
+        <result property="btype"    column="btype"    />
+        <result property="mitype"    column="mitype"    />
+        <result property="subtype"    column="subtype"    />
+        <result property="goodbarcode"    column="goodbarcode"    />
+        <result property="goodname"    column="goodname"    />
+        <result property="productname"    column="productname"    />
+        <result property="docode"    column="docode"    />
+        <result property="doestype"    column="doestype"    />
+        <result property="style"    column="style"    />
+        <result property="usemonth"    column="usemonth"    />
+        <result property="isimport"    column="isimport"    />
+        <result property="factory"    column="factory"    />
+        <result property="factoryaddr"    column="factoryaddr"    />
+        <result property="factorydocode"    column="factorydocode"    />
+        <result property="mftdateaccuracy"    column="mftdateaccuracy"    />
+        <result property="validperiodaccuracy"    column="validperiodaccuracy"    />
+        <result property="drugtype"    column="drugtype"    />
+        <result property="apvno"    column="apvno"    />
+        <result property="stmtype"    column="stmtype"    />
+        <result property="category"    column="category"    />
+        <result property="iscanretail"    column="iscanretail"    />
+        <result property="newpurcprice"    column="newpurcprice"    />
+        <result property="newretailpurcprice"    column="newretailpurcprice"    />
+        <result property="saleprice"    column="saleprice"    />
+        <result property="unit"    column="unit"    />
+        <result property="retailunit"    column="retailunit"    />
+        <result property="retailrate"    column="retailrate"    />
+        <result property="retailprice"    column="retailprice"    />
+        <result property="minsaleprice"    column="minsaleprice"    />
+        <result property="stkqty"    column="stkqty"    />
+        <result property="retailstkqty"    column="retailstkqty"    />
+        <result property="memberprice"    column="memberprice"    />
+        <result property="oprice"    column="oprice"    />
+        <result property="spcpricefdate"    column="spcpricefdate"    />
+        <result property="spcpricetdate"    column="spcpricetdate"    />
+        <result property="dayspcprice"    column="dayspcprice"    />
+        <result property="dayspclmtqty"    column="dayspclmtqty"    />
+        <result property="timespcstart"    column="timespcstart"    />
+        <result property="timespcend"    column="timespcend"    />
+        <result property="timeprice"    column="timeprice"    />
+        <result property="timespclmtqty"    column="timespclmtqty"    />
+        <result property="purcperiod"    column="purcperiod"    />
+        <result property="minpurcqty"    column="minpurcqty"    />
+        <result property="maxstcqty"    column="maxstcqty"    />
+        <result property="minstcqty"    column="minstcqty"    />
+        <result property="stkno"    column="stkno"    />
+        <result property="shelfno"    column="shelfno"    />
+        <result property="lmtpurcqty"    column="lmtpurcqty"    />
+        <result property="graderate"    column="graderate"    />
+        <result property="commmethod"    column="commmethod"    />
+        <result property="commqty"    column="commqty"    />
+        <result property="isfavourable"    column="isfavourable"    />
+        <result property="rcpdrgtype"    column="rcpdrgtype"    />
+        <result property="sbno"    column="sbno"    />
+        <result property="ybdrgtype"    column="ybdrgtype"    />
+        <result property="regno"    column="regno"    />
+        <result property="prdctionlcsno"    column="prdctionlcsno"    />
+        <result property="regmarks"    column="regmarks"    />
+        <result property="chkrpt"    column="chkrpt"    />
+        <result property="inpart"    column="inpart"    />
+        <result property="storagecdtion"    column="storagecdtion"    />
+        <result property="ischinareame"    column="ischinareame"    />
+        <result property="isfirstapvtable"    column="isfirstapvtable"    />
+        <result property="rxtype"    column="rxtype"    />
+        <result property="curingway"    column="curingway"    />
+        <result property="state"    column="state"    />
+        <result property="maintanceflag"    column="maintanceflag"    />
+        <result property="minunit"    column="minunit"    />
+        <result property="minunitcount"    column="minunitcount"    />
+        <result property="convertrate"    column="convertrate"    />
+        <result property="addtype"    column="addtype"    />
+        <result property="hasretailtrd"    column="hasretailtrd"    />
+        <result property="basestyle"    column="basestyle"    />
+        <result property="createtime"    column="createtime"    />
+        <result property="edittime"    column="edittime"    />
+        <result property="edituserid"    column="edituserid"    />
+        <result property="editusername"    column="editusername"    />
+        <result property="montype"    column="montype"    />
+        <result property="chkno"    column="chkno"    />
+        <result property="isdiscount"    column="isdiscount"    />
+        <result property="specialoffervalue"    column="specialoffervalue"    />
+        <result property="specialofferlist"    column="specialofferlist"    />
+        <result property="specialdrgtype"    column="specialdrgtype"    />
+        <result property="isupdateBms"    column="isupdate_bms"    />
+        <result property="abcstate"    column="abcstate"    />
+        <result property="apvnovalidity"    column="apvnovalidity"    />
+        <result property="incompatibility"    column="incompatibility"    />
+        <result property="fixedprice"    column="fixedprice"    />
+        <result property="cost"    column="cost"    />
+        <result property="retailcost"    column="retailcost"    />
+        <result property="projectcode"    column="projectcode"    />
+        <result property="isonlinetrading"    column="isonlinetrading"    />
+        <result property="ismoncode"    column="ismoncode"    />
+        <result property="holder"    column="holder"    />
+        <result property="isupmath"    column="isupmath"    />
+        <result property="chronicprice"    column="chronicprice"    />
+        <result property="id"    column="id"    />
+    </resultMap>
+
+    <sql id="selectJxcGoodBaseinfoVo">
+        select goodcode, goodstdcode, gbcode, goodtype, btype, mitype, subtype, goodbarcode, goodname, productname, docode, doestype, style, usemonth, isimport, factory, factoryaddr, factorydocode, mftdateaccuracy, validperiodaccuracy, drugtype, apvno, stmtype, category, iscanretail, newpurcprice, newretailpurcprice, saleprice, unit, retailunit, retailrate, retailprice, minsaleprice, stkqty, retailstkqty, memberprice, oprice, spcpricefdate, spcpricetdate, dayspcprice, dayspclmtqty, timespcstart, timespcend, timeprice, timespclmtqty, purcperiod, minpurcqty, maxstcqty, minstcqty, stkno, shelfno, lmtpurcqty, graderate, commmethod, commqty, isfavourable, rcpdrgtype, sbno, ybdrgtype, regno, prdctionlcsno, regmarks, chkrpt, inpart, storagecdtion, ischinareame, isfirstapvtable, rxtype, curingway, state, maintanceflag, minunit, minunitcount, convertrate, addtype, hasretailtrd, basestyle, createtime, edittime, edituserid, editusername, montype, chkno, isdiscount, specialoffervalue, specialofferlist, specialdrgtype, isupdate_bms, abcstate, apvnovalidity, incompatibility, fixedprice, cost, retailcost, projectcode, isonlinetrading, ismoncode, holder, isupmath, chronicprice, id from jxc_good_baseinfo
+    </sql>
+
+    <select id="selectJxcGoodBaseinfoList" parameterType="JxcGoodBaseinfo" resultMap="JxcGoodBaseinfoResult">
+        <include refid="selectJxcGoodBaseinfoVo"/>
+        <where>
+            <if test="goodcode != null  and goodcode != ''"> and goodcode = #{goodcode}</if>
+            <if test="goodstdcode != null  and goodstdcode != ''"> and goodstdcode = #{goodstdcode}</if>
+            <if test="gbcode != null  and gbcode != ''"> and gbcode = #{gbcode}</if>
+            <if test="goodtype != null "> and goodtype = #{goodtype}</if>
+            <if test="btype != null  and btype != ''"> and btype = #{btype}</if>
+            <if test="mitype != null  and mitype != ''"> and mitype = #{mitype}</if>
+            <if test="subtype != null  and subtype != ''"> and subtype = #{subtype}</if>
+            <if test="goodbarcode != null  and goodbarcode != ''"> and goodbarcode = #{goodbarcode}</if>
+            <if test="goodname != null  and goodname != ''">
+                 AND goodname like concat(concat('%', #{goodname}), '%')
+            </if>
+            <if test="productname != null  and productname != ''">
+                 AND productname like concat(concat('%', #{productname}), '%')
+            </if>
+            <if test="docode != null  and docode != ''"> and docode = #{docode}</if>
+            <if test="doestype != null  and doestype != ''"> and doestype = #{doestype}</if>
+            <if test="style != null  and style != ''"> and style = #{style}</if>
+            <if test="usemonth != null "> and usemonth = #{usemonth}</if>
+            <if test="isimport != null "> and isimport = #{isimport}</if>
+            <if test="factory != null  and factory != ''"> and factory = #{factory}</if>
+            <if test="factoryaddr != null  and factoryaddr != ''"> and factoryaddr = #{factoryaddr}</if>
+            <if test="factorydocode != null  and factorydocode != ''"> and factorydocode = #{factorydocode}</if>
+            <if test="mftdateaccuracy != null "> and mftdateaccuracy = #{mftdateaccuracy}</if>
+            <if test="validperiodaccuracy != null "> and validperiodaccuracy = #{validperiodaccuracy}</if>
+            <if test="drugtype != null "> and drugtype = #{drugtype}</if>
+            <if test="apvno != null  and apvno != ''"> and apvno = #{apvno}</if>
+            <if test="stmtype != null "> and stmtype = #{stmtype}</if>
+            <if test="category != null  and category != ''"> and category = #{category}</if>
+            <if test="iscanretail != null "> and iscanretail = #{iscanretail}</if>
+            <if test="newpurcprice != null "> and newpurcprice = #{newpurcprice}</if>
+            <if test="newretailpurcprice != null "> and newretailpurcprice = #{newretailpurcprice}</if>
+            <if test="saleprice != null "> and saleprice = #{saleprice}</if>
+            <if test="unit != null  and unit != ''"> and unit = #{unit}</if>
+            <if test="retailunit != null  and retailunit != ''"> and retailunit = #{retailunit}</if>
+            <if test="retailrate != null "> and retailrate = #{retailrate}</if>
+            <if test="retailprice != null "> and retailprice = #{retailprice}</if>
+            <if test="minsaleprice != null "> and minsaleprice = #{minsaleprice}</if>
+            <if test="stkqty != null "> and stkqty = #{stkqty}</if>
+            <if test="retailstkqty != null "> and retailstkqty = #{retailstkqty}</if>
+            <if test="memberprice != null "> and memberprice = #{memberprice}</if>
+            <if test="oprice != null "> and oprice = #{oprice}</if>
+            <if test="spcpricefdate != null "> and spcpricefdate = #{spcpricefdate}</if>
+            <if test="spcpricetdate != null "> and spcpricetdate = #{spcpricetdate}</if>
+            <if test="dayspcprice != null "> and dayspcprice = #{dayspcprice}</if>
+            <if test="dayspclmtqty != null "> and dayspclmtqty = #{dayspclmtqty}</if>
+            <if test="timespcstart != null  and timespcstart != ''"> and timespcstart = #{timespcstart}</if>
+            <if test="timespcend != null  and timespcend != ''"> and timespcend = #{timespcend}</if>
+            <if test="timeprice != null "> and timeprice = #{timeprice}</if>
+            <if test="timespclmtqty != null "> and timespclmtqty = #{timespclmtqty}</if>
+            <if test="purcperiod != null "> and purcperiod = #{purcperiod}</if>
+            <if test="minpurcqty != null "> and minpurcqty = #{minpurcqty}</if>
+            <if test="maxstcqty != null "> and maxstcqty = #{maxstcqty}</if>
+            <if test="minstcqty != null "> and minstcqty = #{minstcqty}</if>
+            <if test="stkno != null  and stkno != ''"> and stkno = #{stkno}</if>
+            <if test="shelfno != null  and shelfno != ''"> and shelfno = #{shelfno}</if>
+            <if test="lmtpurcqty != null "> and lmtpurcqty = #{lmtpurcqty}</if>
+            <if test="graderate != null "> and graderate = #{graderate}</if>
+            <if test="commmethod != null "> and commmethod = #{commmethod}</if>
+            <if test="commqty != null "> and commqty = #{commqty}</if>
+            <if test="isfavourable != null "> and isfavourable = #{isfavourable}</if>
+            <if test="rcpdrgtype != null "> and rcpdrgtype = #{rcpdrgtype}</if>
+            <if test="sbno != null  and sbno != ''"> and sbno = #{sbno}</if>
+            <if test="ybdrgtype != null "> and ybdrgtype = #{ybdrgtype}</if>
+            <if test="regno != null  and regno != ''"> and regno = #{regno}</if>
+            <if test="prdctionlcsno != null  and prdctionlcsno != ''"> and prdctionlcsno = #{prdctionlcsno}</if>
+            <if test="regmarks != null  and regmarks != ''"> and regmarks = #{regmarks}</if>
+            <if test="chkrpt != null  and chkrpt != ''"> and chkrpt = #{chkrpt}</if>
+            <if test="inpart != null  and inpart != ''"> and inpart = #{inpart}</if>
+            <if test="storagecdtion != null "> and storagecdtion = #{storagecdtion}</if>
+            <if test="ischinareame != null "> and ischinareame = #{ischinareame}</if>
+            <if test="isfirstapvtable != null "> and isfirstapvtable = #{isfirstapvtable}</if>
+            <if test="rxtype != null  and rxtype != ''"> and rxtype = #{rxtype}</if>
+            <if test="curingway != null "> and curingway = #{curingway}</if>
+            <if test="state != null "> and state = #{state}</if>
+            <if test="maintanceflag != null "> and maintanceflag = #{maintanceflag}</if>
+            <if test="minunit != null  and minunit != ''"> and minunit = #{minunit}</if>
+            <if test="minunitcount != null "> and minunitcount = #{minunitcount}</if>
+            <if test="convertrate != null "> and convertrate = #{convertrate}</if>
+            <if test="addtype != null "> and addtype = #{addtype}</if>
+            <if test="hasretailtrd != null "> and hasretailtrd = #{hasretailtrd}</if>
+            <if test="basestyle != null  and basestyle != ''"> and basestyle = #{basestyle}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="edittime != null "> and edittime = #{edittime}</if>
+            <if test="edituserid != null "> and edituserid = #{edituserid}</if>
+            <if test="editusername != null  and editusername != ''">
+                 AND editusername like concat(concat('%', #{editusername}), '%')
+            </if>
+            <if test="montype != null  and montype != ''"> and montype = #{montype}</if>
+            <if test="chkno != null  and chkno != ''"> and chkno = #{chkno}</if>
+            <if test="isdiscount != null "> and isdiscount = #{isdiscount}</if>
+            <if test="specialoffervalue != null "> and specialoffervalue = #{specialoffervalue}</if>
+            <if test="specialofferlist != null  and specialofferlist != ''"> and specialofferlist = #{specialofferlist}</if>
+            <if test="specialdrgtype != null "> and specialdrgtype = #{specialdrgtype}</if>
+            <if test="isupdateBms != null "> and isupdate_bms = #{isupdateBms}</if>
+            <if test="abcstate != null  and abcstate != ''"> and abcstate = #{abcstate}</if>
+            <if test="apvnovalidity != null "> and apvnovalidity = #{apvnovalidity}</if>
+            <if test="incompatibility != null  and incompatibility != ''"> and incompatibility = #{incompatibility}</if>
+            <if test="fixedprice != null "> and fixedprice = #{fixedprice}</if>
+            <if test="cost != null "> and cost = #{cost}</if>
+            <if test="retailcost != null "> and retailcost = #{retailcost}</if>
+            <if test="projectcode != null  and projectcode != ''"> and projectcode = #{projectcode}</if>
+            <if test="isonlinetrading != null "> and isonlinetrading = #{isonlinetrading}</if>
+            <if test="ismoncode != null "> and ismoncode = #{ismoncode}</if>
+            <if test="holder != null  and holder != ''"> and holder = #{holder}</if>
+            <if test="isupmath != null "> and isupmath = #{isupmath}</if>
+            <if test="chronicprice != null "> and chronicprice = #{chronicprice}</if>
+        </where>
+    </select>
+
+    <select id="selectJxcGoodBaseinfoById" parameterType="String" resultMap="JxcGoodBaseinfoResult">
+        <include refid="selectJxcGoodBaseinfoVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertJxcGoodBaseinfo" parameterType="JxcGoodBaseinfo">
+        insert into jxc_good_baseinfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="goodcode != null and goodcode != ''">goodcode,</if>
+            <if test="goodstdcode != null">goodstdcode,</if>
+            <if test="gbcode != null">gbcode,</if>
+            <if test="goodtype != null">goodtype,</if>
+            <if test="btype != null">btype,</if>
+            <if test="mitype != null">mitype,</if>
+            <if test="subtype != null">subtype,</if>
+            <if test="goodbarcode != null">goodbarcode,</if>
+            <if test="goodname != null">goodname,</if>
+            <if test="productname != null">productname,</if>
+            <if test="docode != null">docode,</if>
+            <if test="doestype != null">doestype,</if>
+            <if test="style != null">style,</if>
+            <if test="usemonth != null">usemonth,</if>
+            <if test="isimport != null">isimport,</if>
+            <if test="factory != null">factory,</if>
+            <if test="factoryaddr != null">factoryaddr,</if>
+            <if test="factorydocode != null">factorydocode,</if>
+            <if test="mftdateaccuracy != null">mftdateaccuracy,</if>
+            <if test="validperiodaccuracy != null">validperiodaccuracy,</if>
+            <if test="drugtype != null">drugtype,</if>
+            <if test="apvno != null">apvno,</if>
+            <if test="stmtype != null">stmtype,</if>
+            <if test="category != null">category,</if>
+            <if test="iscanretail != null">iscanretail,</if>
+            <if test="newpurcprice != null">newpurcprice,</if>
+            <if test="newretailpurcprice != null">newretailpurcprice,</if>
+            <if test="saleprice != null">saleprice,</if>
+            <if test="unit != null">unit,</if>
+            <if test="retailunit != null">retailunit,</if>
+            <if test="retailrate != null">retailrate,</if>
+            <if test="retailprice != null">retailprice,</if>
+            <if test="minsaleprice != null">minsaleprice,</if>
+            <if test="stkqty != null">stkqty,</if>
+            <if test="retailstkqty != null">retailstkqty,</if>
+            <if test="memberprice != null">memberprice,</if>
+            <if test="oprice != null">oprice,</if>
+            <if test="spcpricefdate != null">spcpricefdate,</if>
+            <if test="spcpricetdate != null">spcpricetdate,</if>
+            <if test="dayspcprice != null">dayspcprice,</if>
+            <if test="dayspclmtqty != null">dayspclmtqty,</if>
+            <if test="timespcstart != null">timespcstart,</if>
+            <if test="timespcend != null">timespcend,</if>
+            <if test="timeprice != null">timeprice,</if>
+            <if test="timespclmtqty != null">timespclmtqty,</if>
+            <if test="purcperiod != null">purcperiod,</if>
+            <if test="minpurcqty != null">minpurcqty,</if>
+            <if test="maxstcqty != null">maxstcqty,</if>
+            <if test="minstcqty != null">minstcqty,</if>
+            <if test="stkno != null">stkno,</if>
+            <if test="shelfno != null">shelfno,</if>
+            <if test="lmtpurcqty != null">lmtpurcqty,</if>
+            <if test="graderate != null">graderate,</if>
+            <if test="commmethod != null">commmethod,</if>
+            <if test="commqty != null">commqty,</if>
+            <if test="isfavourable != null">isfavourable,</if>
+            <if test="rcpdrgtype != null">rcpdrgtype,</if>
+            <if test="sbno != null">sbno,</if>
+            <if test="ybdrgtype != null">ybdrgtype,</if>
+            <if test="regno != null">regno,</if>
+            <if test="prdctionlcsno != null">prdctionlcsno,</if>
+            <if test="regmarks != null">regmarks,</if>
+            <if test="chkrpt != null">chkrpt,</if>
+            <if test="inpart != null">inpart,</if>
+            <if test="storagecdtion != null">storagecdtion,</if>
+            <if test="ischinareame != null">ischinareame,</if>
+            <if test="isfirstapvtable != null">isfirstapvtable,</if>
+            <if test="rxtype != null">rxtype,</if>
+            <if test="curingway != null">curingway,</if>
+            <if test="state != null">state,</if>
+            <if test="maintanceflag != null">maintanceflag,</if>
+            <if test="minunit != null">minunit,</if>
+            <if test="minunitcount != null">minunitcount,</if>
+            <if test="convertrate != null">convertrate,</if>
+            <if test="addtype != null">addtype,</if>
+            <if test="hasretailtrd != null">hasretailtrd,</if>
+            <if test="basestyle != null">basestyle,</if>
+            <if test="createtime != null">createtime,</if>
+            <if test="edittime != null">edittime,</if>
+            <if test="edituserid != null">edituserid,</if>
+            <if test="editusername != null">editusername,</if>
+            <if test="montype != null">montype,</if>
+            <if test="chkno != null">chkno,</if>
+            <if test="isdiscount != null">isdiscount,</if>
+            <if test="specialoffervalue != null">specialoffervalue,</if>
+            <if test="specialofferlist != null">specialofferlist,</if>
+            <if test="specialdrgtype != null">specialdrgtype,</if>
+            <if test="isupdateBms != null">isupdate_bms,</if>
+            <if test="abcstate != null">abcstate,</if>
+            <if test="apvnovalidity != null">apvnovalidity,</if>
+            <if test="incompatibility != null">incompatibility,</if>
+            <if test="fixedprice != null">fixedprice,</if>
+            <if test="cost != null">cost,</if>
+            <if test="retailcost != null">retailcost,</if>
+            <if test="projectcode != null">projectcode,</if>
+            <if test="isonlinetrading != null">isonlinetrading,</if>
+            <if test="ismoncode != null">ismoncode,</if>
+            <if test="holder != null">holder,</if>
+            <if test="isupmath != null">isupmath,</if>
+            <if test="chronicprice != null">chronicprice,</if>
+            <if test="id != null">id,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="goodcode != null and goodcode != ''">#{goodcode},</if>
+            <if test="goodstdcode != null">#{goodstdcode},</if>
+            <if test="gbcode != null">#{gbcode},</if>
+            <if test="goodtype != null">#{goodtype},</if>
+            <if test="btype != null">#{btype},</if>
+            <if test="mitype != null">#{mitype},</if>
+            <if test="subtype != null">#{subtype},</if>
+            <if test="goodbarcode != null">#{goodbarcode},</if>
+            <if test="goodname != null">#{goodname},</if>
+            <if test="productname != null">#{productname},</if>
+            <if test="docode != null">#{docode},</if>
+            <if test="doestype != null">#{doestype},</if>
+            <if test="style != null">#{style},</if>
+            <if test="usemonth != null">#{usemonth},</if>
+            <if test="isimport != null">#{isimport},</if>
+            <if test="factory != null">#{factory},</if>
+            <if test="factoryaddr != null">#{factoryaddr},</if>
+            <if test="factorydocode != null">#{factorydocode},</if>
+            <if test="mftdateaccuracy != null">#{mftdateaccuracy},</if>
+            <if test="validperiodaccuracy != null">#{validperiodaccuracy},</if>
+            <if test="drugtype != null">#{drugtype},</if>
+            <if test="apvno != null">#{apvno},</if>
+            <if test="stmtype != null">#{stmtype},</if>
+            <if test="category != null">#{category},</if>
+            <if test="iscanretail != null">#{iscanretail},</if>
+            <if test="newpurcprice != null">#{newpurcprice},</if>
+            <if test="newretailpurcprice != null">#{newretailpurcprice},</if>
+            <if test="saleprice != null">#{saleprice},</if>
+            <if test="unit != null">#{unit},</if>
+            <if test="retailunit != null">#{retailunit},</if>
+            <if test="retailrate != null">#{retailrate},</if>
+            <if test="retailprice != null">#{retailprice},</if>
+            <if test="minsaleprice != null">#{minsaleprice},</if>
+            <if test="stkqty != null">#{stkqty},</if>
+            <if test="retailstkqty != null">#{retailstkqty},</if>
+            <if test="memberprice != null">#{memberprice},</if>
+            <if test="oprice != null">#{oprice},</if>
+            <if test="spcpricefdate != null">#{spcpricefdate},</if>
+            <if test="spcpricetdate != null">#{spcpricetdate},</if>
+            <if test="dayspcprice != null">#{dayspcprice},</if>
+            <if test="dayspclmtqty != null">#{dayspclmtqty},</if>
+            <if test="timespcstart != null">#{timespcstart},</if>
+            <if test="timespcend != null">#{timespcend},</if>
+            <if test="timeprice != null">#{timeprice},</if>
+            <if test="timespclmtqty != null">#{timespclmtqty},</if>
+            <if test="purcperiod != null">#{purcperiod},</if>
+            <if test="minpurcqty != null">#{minpurcqty},</if>
+            <if test="maxstcqty != null">#{maxstcqty},</if>
+            <if test="minstcqty != null">#{minstcqty},</if>
+            <if test="stkno != null">#{stkno},</if>
+            <if test="shelfno != null">#{shelfno},</if>
+            <if test="lmtpurcqty != null">#{lmtpurcqty},</if>
+            <if test="graderate != null">#{graderate},</if>
+            <if test="commmethod != null">#{commmethod},</if>
+            <if test="commqty != null">#{commqty},</if>
+            <if test="isfavourable != null">#{isfavourable},</if>
+            <if test="rcpdrgtype != null">#{rcpdrgtype},</if>
+            <if test="sbno != null">#{sbno},</if>
+            <if test="ybdrgtype != null">#{ybdrgtype},</if>
+            <if test="regno != null">#{regno},</if>
+            <if test="prdctionlcsno != null">#{prdctionlcsno},</if>
+            <if test="regmarks != null">#{regmarks},</if>
+            <if test="chkrpt != null">#{chkrpt},</if>
+            <if test="inpart != null">#{inpart},</if>
+            <if test="storagecdtion != null">#{storagecdtion},</if>
+            <if test="ischinareame != null">#{ischinareame},</if>
+            <if test="isfirstapvtable != null">#{isfirstapvtable},</if>
+            <if test="rxtype != null">#{rxtype},</if>
+            <if test="curingway != null">#{curingway},</if>
+            <if test="state != null">#{state},</if>
+            <if test="maintanceflag != null">#{maintanceflag},</if>
+            <if test="minunit != null">#{minunit},</if>
+            <if test="minunitcount != null">#{minunitcount},</if>
+            <if test="convertrate != null">#{convertrate},</if>
+            <if test="addtype != null">#{addtype},</if>
+            <if test="hasretailtrd != null">#{hasretailtrd},</if>
+            <if test="basestyle != null">#{basestyle},</if>
+            <if test="createtime != null">#{createtime},</if>
+            <if test="edittime != null">#{edittime},</if>
+            <if test="edituserid != null">#{edituserid},</if>
+            <if test="editusername != null">#{editusername},</if>
+            <if test="montype != null">#{montype},</if>
+            <if test="chkno != null">#{chkno},</if>
+            <if test="isdiscount != null">#{isdiscount},</if>
+            <if test="specialoffervalue != null">#{specialoffervalue},</if>
+            <if test="specialofferlist != null">#{specialofferlist},</if>
+            <if test="specialdrgtype != null">#{specialdrgtype},</if>
+            <if test="isupdateBms != null">#{isupdateBms},</if>
+            <if test="abcstate != null">#{abcstate},</if>
+            <if test="apvnovalidity != null">#{apvnovalidity},</if>
+            <if test="incompatibility != null">#{incompatibility},</if>
+            <if test="fixedprice != null">#{fixedprice},</if>
+            <if test="cost != null">#{cost},</if>
+            <if test="retailcost != null">#{retailcost},</if>
+            <if test="projectcode != null">#{projectcode},</if>
+            <if test="isonlinetrading != null">#{isonlinetrading},</if>
+            <if test="ismoncode != null">#{ismoncode},</if>
+            <if test="holder != null">#{holder},</if>
+            <if test="isupmath != null">#{isupmath},</if>
+            <if test="chronicprice != null">#{chronicprice},</if>
+            <if test="id != null">#{id},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJxcGoodBaseinfo" parameterType="JxcGoodBaseinfo">
+        update jxc_good_baseinfo
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="goodcode != null and goodcode != ''">goodcode = #{goodcode},</if>
+            <if test="goodstdcode != null">goodstdcode = #{goodstdcode},</if>
+            <if test="gbcode != null">gbcode = #{gbcode},</if>
+            <if test="goodtype != null">goodtype = #{goodtype},</if>
+            <if test="btype != null">btype = #{btype},</if>
+            <if test="mitype != null">mitype = #{mitype},</if>
+            <if test="subtype != null">subtype = #{subtype},</if>
+            <if test="goodbarcode != null">goodbarcode = #{goodbarcode},</if>
+            <if test="goodname != null">goodname = #{goodname},</if>
+            <if test="productname != null">productname = #{productname},</if>
+            <if test="docode != null">docode = #{docode},</if>
+            <if test="doestype != null">doestype = #{doestype},</if>
+            <if test="style != null">style = #{style},</if>
+            <if test="usemonth != null">usemonth = #{usemonth},</if>
+            <if test="isimport != null">isimport = #{isimport},</if>
+            <if test="factory != null">factory = #{factory},</if>
+            <if test="factoryaddr != null">factoryaddr = #{factoryaddr},</if>
+            <if test="factorydocode != null">factorydocode = #{factorydocode},</if>
+            <if test="mftdateaccuracy != null">mftdateaccuracy = #{mftdateaccuracy},</if>
+            <if test="validperiodaccuracy != null">validperiodaccuracy = #{validperiodaccuracy},</if>
+            <if test="drugtype != null">drugtype = #{drugtype},</if>
+            <if test="apvno != null">apvno = #{apvno},</if>
+            <if test="stmtype != null">stmtype = #{stmtype},</if>
+            <if test="category != null">category = #{category},</if>
+            <if test="iscanretail != null">iscanretail = #{iscanretail},</if>
+            <if test="newpurcprice != null">newpurcprice = #{newpurcprice},</if>
+            <if test="newretailpurcprice != null">newretailpurcprice = #{newretailpurcprice},</if>
+            <if test="saleprice != null">saleprice = #{saleprice},</if>
+            <if test="unit != null">unit = #{unit},</if>
+            <if test="retailunit != null">retailunit = #{retailunit},</if>
+            <if test="retailrate != null">retailrate = #{retailrate},</if>
+            <if test="retailprice != null">retailprice = #{retailprice},</if>
+            <if test="minsaleprice != null">minsaleprice = #{minsaleprice},</if>
+            <if test="stkqty != null">stkqty = #{stkqty},</if>
+            <if test="retailstkqty != null">retailstkqty = #{retailstkqty},</if>
+            <if test="memberprice != null">memberprice = #{memberprice},</if>
+            <if test="oprice != null">oprice = #{oprice},</if>
+            <if test="spcpricefdate != null">spcpricefdate = #{spcpricefdate},</if>
+            <if test="spcpricetdate != null">spcpricetdate = #{spcpricetdate},</if>
+            <if test="dayspcprice != null">dayspcprice = #{dayspcprice},</if>
+            <if test="dayspclmtqty != null">dayspclmtqty = #{dayspclmtqty},</if>
+            <if test="timespcstart != null">timespcstart = #{timespcstart},</if>
+            <if test="timespcend != null">timespcend = #{timespcend},</if>
+            <if test="timeprice != null">timeprice = #{timeprice},</if>
+            <if test="timespclmtqty != null">timespclmtqty = #{timespclmtqty},</if>
+            <if test="purcperiod != null">purcperiod = #{purcperiod},</if>
+            <if test="minpurcqty != null">minpurcqty = #{minpurcqty},</if>
+            <if test="maxstcqty != null">maxstcqty = #{maxstcqty},</if>
+            <if test="minstcqty != null">minstcqty = #{minstcqty},</if>
+            <if test="stkno != null">stkno = #{stkno},</if>
+            <if test="shelfno != null">shelfno = #{shelfno},</if>
+            <if test="lmtpurcqty != null">lmtpurcqty = #{lmtpurcqty},</if>
+            <if test="graderate != null">graderate = #{graderate},</if>
+            <if test="commmethod != null">commmethod = #{commmethod},</if>
+            <if test="commqty != null">commqty = #{commqty},</if>
+            <if test="isfavourable != null">isfavourable = #{isfavourable},</if>
+            <if test="rcpdrgtype != null">rcpdrgtype = #{rcpdrgtype},</if>
+            <if test="sbno != null">sbno = #{sbno},</if>
+            <if test="ybdrgtype != null">ybdrgtype = #{ybdrgtype},</if>
+            <if test="regno != null">regno = #{regno},</if>
+            <if test="prdctionlcsno != null">prdctionlcsno = #{prdctionlcsno},</if>
+            <if test="regmarks != null">regmarks = #{regmarks},</if>
+            <if test="chkrpt != null">chkrpt = #{chkrpt},</if>
+            <if test="inpart != null">inpart = #{inpart},</if>
+            <if test="storagecdtion != null">storagecdtion = #{storagecdtion},</if>
+            <if test="ischinareame != null">ischinareame = #{ischinareame},</if>
+            <if test="isfirstapvtable != null">isfirstapvtable = #{isfirstapvtable},</if>
+            <if test="rxtype != null">rxtype = #{rxtype},</if>
+            <if test="curingway != null">curingway = #{curingway},</if>
+            <if test="state != null">state = #{state},</if>
+            <if test="maintanceflag != null">maintanceflag = #{maintanceflag},</if>
+            <if test="minunit != null">minunit = #{minunit},</if>
+            <if test="minunitcount != null">minunitcount = #{minunitcount},</if>
+            <if test="convertrate != null">convertrate = #{convertrate},</if>
+            <if test="addtype != null">addtype = #{addtype},</if>
+            <if test="hasretailtrd != null">hasretailtrd = #{hasretailtrd},</if>
+            <if test="basestyle != null">basestyle = #{basestyle},</if>
+            <if test="createtime != null">createtime = #{createtime},</if>
+            <if test="edittime != null">edittime = #{edittime},</if>
+            <if test="edituserid != null">edituserid = #{edituserid},</if>
+            <if test="editusername != null">editusername = #{editusername},</if>
+            <if test="montype != null">montype = #{montype},</if>
+            <if test="chkno != null">chkno = #{chkno},</if>
+            <if test="isdiscount != null">isdiscount = #{isdiscount},</if>
+            <if test="specialoffervalue != null">specialoffervalue = #{specialoffervalue},</if>
+            <if test="specialofferlist != null">specialofferlist = #{specialofferlist},</if>
+            <if test="specialdrgtype != null">specialdrgtype = #{specialdrgtype},</if>
+            <if test="isupdateBms != null">isupdate_bms = #{isupdateBms},</if>
+            <if test="abcstate != null">abcstate = #{abcstate},</if>
+            <if test="apvnovalidity != null">apvnovalidity = #{apvnovalidity},</if>
+            <if test="incompatibility != null">incompatibility = #{incompatibility},</if>
+            <if test="fixedprice != null">fixedprice = #{fixedprice},</if>
+            <if test="cost != null">cost = #{cost},</if>
+            <if test="retailcost != null">retailcost = #{retailcost},</if>
+            <if test="projectcode != null">projectcode = #{projectcode},</if>
+            <if test="isonlinetrading != null">isonlinetrading = #{isonlinetrading},</if>
+            <if test="ismoncode != null">ismoncode = #{ismoncode},</if>
+            <if test="holder != null">holder = #{holder},</if>
+            <if test="isupmath != null">isupmath = #{isupmath},</if>
+            <if test="chronicprice != null">chronicprice = #{chronicprice},</if>
+        </trim>
+        where id = #{id}
+    </update>
+    <update id="updateJxcGoodBaseinfoByPrimaryKey" parameterType="JxcGoodBaseinfo">
+        update jxc_good_baseinfo set
+           goodcode = #{goodcode},
+           goodstdcode = #{goodstdcode},
+           gbcode = #{gbcode},
+           goodtype = #{goodtype},
+           btype = #{btype},
+           mitype = #{mitype},
+           subtype = #{subtype},
+           goodbarcode = #{goodbarcode},
+           goodname = #{goodname},
+           productname = #{productname},
+           docode = #{docode},
+           doestype = #{doestype},
+           style = #{style},
+           usemonth = #{usemonth},
+           isimport = #{isimport},
+           factory = #{factory},
+           factoryaddr = #{factoryaddr},
+           factorydocode = #{factorydocode},
+           mftdateaccuracy = #{mftdateaccuracy},
+           validperiodaccuracy = #{validperiodaccuracy},
+           drugtype = #{drugtype},
+           apvno = #{apvno},
+           stmtype = #{stmtype},
+           category = #{category},
+           iscanretail = #{iscanretail},
+           newpurcprice = #{newpurcprice},
+           newretailpurcprice = #{newretailpurcprice},
+           saleprice = #{saleprice},
+           unit = #{unit},
+           retailunit = #{retailunit},
+           retailrate = #{retailrate},
+           retailprice = #{retailprice},
+           minsaleprice = #{minsaleprice},
+           stkqty = #{stkqty},
+           retailstkqty = #{retailstkqty},
+           memberprice = #{memberprice},
+           oprice = #{oprice},
+           spcpricefdate = #{spcpricefdate},
+           spcpricetdate = #{spcpricetdate},
+           dayspcprice = #{dayspcprice},
+           dayspclmtqty = #{dayspclmtqty},
+           timespcstart = #{timespcstart},
+           timespcend = #{timespcend},
+           timeprice = #{timeprice},
+           timespclmtqty = #{timespclmtqty},
+           purcperiod = #{purcperiod},
+           minpurcqty = #{minpurcqty},
+           maxstcqty = #{maxstcqty},
+           minstcqty = #{minstcqty},
+           stkno = #{stkno},
+           shelfno = #{shelfno},
+           lmtpurcqty = #{lmtpurcqty},
+           graderate = #{graderate},
+           commmethod = #{commmethod},
+           commqty = #{commqty},
+           isfavourable = #{isfavourable},
+           rcpdrgtype = #{rcpdrgtype},
+           sbno = #{sbno},
+           ybdrgtype = #{ybdrgtype},
+           regno = #{regno},
+           prdctionlcsno = #{prdctionlcsno},
+           regmarks = #{regmarks},
+           chkrpt = #{chkrpt},
+           inpart = #{inpart},
+           storagecdtion = #{storagecdtion},
+           ischinareame = #{ischinareame},
+           isfirstapvtable = #{isfirstapvtable},
+           rxtype = #{rxtype},
+           curingway = #{curingway},
+           state = #{state},
+           maintanceflag = #{maintanceflag},
+           minunit = #{minunit},
+           minunitcount = #{minunitcount},
+           convertrate = #{convertrate},
+           addtype = #{addtype},
+           hasretailtrd = #{hasretailtrd},
+           basestyle = #{basestyle},
+           createtime = #{createtime},
+           edittime = #{edittime},
+           edituserid = #{edituserid},
+           editusername = #{editusername},
+           montype = #{montype},
+           chkno = #{chkno},
+           isdiscount = #{isdiscount},
+           specialoffervalue = #{specialoffervalue},
+           specialofferlist = #{specialofferlist},
+           specialdrgtype = #{specialdrgtype},
+           isupdate_bms = #{isupdateBms},
+           abcstate = #{abcstate},
+           apvnovalidity = #{apvnovalidity},
+           incompatibility = #{incompatibility},
+           fixedprice = #{fixedprice},
+           cost = #{cost},
+           retailcost = #{retailcost},
+           projectcode = #{projectcode},
+           isonlinetrading = #{isonlinetrading},
+           ismoncode = #{ismoncode},
+           holder = #{holder},
+           isupmath = #{isupmath},
+           chronicprice = #{chronicprice},
+
+        where id = #{id}
+    </update>
+    <delete id="deleteJxcGoodBaseinfoById" parameterType="String">
+        delete from jxc_good_baseinfo where id = #{id}
+    </delete>
+
+    <delete id="deleteJxcGoodBaseinfoByIds" parameterType="String">
+        delete from jxc_good_baseinfo where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="selectJxcGoodBaseinfoCount" parameterType="JxcGoodBaseinfo" resultType="java.lang.Integer">
+        select count(1) from jxc_good_baseinfo
+        <where>
+            <if test="goodcode != null  and goodcode != ''"> and goodcode = #{goodcode}</if>
+            <if test="goodstdcode != null  and goodstdcode != ''"> and goodstdcode = #{goodstdcode}</if>
+            <if test="gbcode != null  and gbcode != ''"> and gbcode = #{gbcode}</if>
+            <if test="goodtype != null "> and goodtype = #{goodtype}</if>
+            <if test="btype != null  and btype != ''"> and btype = #{btype}</if>
+            <if test="mitype != null  and mitype != ''"> and mitype = #{mitype}</if>
+            <if test="subtype != null  and subtype != ''"> and subtype = #{subtype}</if>
+            <if test="goodbarcode != null  and goodbarcode != ''"> and goodbarcode = #{goodbarcode}</if>
+            <if test="goodname != null  and goodname != ''">
+                AND goodname like concat(concat('%', #{goodname}), '%')
+            </if>
+            <if test="productname != null  and productname != ''">
+                AND productname like concat(concat('%', #{productname}), '%')
+            </if>
+            <if test="docode != null  and docode != ''"> and docode = #{docode}</if>
+            <if test="doestype != null  and doestype != ''"> and doestype = #{doestype}</if>
+            <if test="style != null  and style != ''"> and style = #{style}</if>
+            <if test="usemonth != null "> and usemonth = #{usemonth}</if>
+            <if test="isimport != null "> and isimport = #{isimport}</if>
+            <if test="factory != null  and factory != ''"> and factory = #{factory}</if>
+            <if test="factoryaddr != null  and factoryaddr != ''"> and factoryaddr = #{factoryaddr}</if>
+            <if test="factorydocode != null  and factorydocode != ''"> and factorydocode = #{factorydocode}</if>
+            <if test="mftdateaccuracy != null "> and mftdateaccuracy = #{mftdateaccuracy}</if>
+            <if test="validperiodaccuracy != null "> and validperiodaccuracy = #{validperiodaccuracy}</if>
+            <if test="drugtype != null "> and drugtype = #{drugtype}</if>
+            <if test="apvno != null  and apvno != ''"> and apvno = #{apvno}</if>
+            <if test="stmtype != null "> and stmtype = #{stmtype}</if>
+            <if test="category != null  and category != ''"> and category = #{category}</if>
+            <if test="iscanretail != null "> and iscanretail = #{iscanretail}</if>
+            <if test="newpurcprice != null "> and newpurcprice = #{newpurcprice}</if>
+            <if test="newretailpurcprice != null "> and newretailpurcprice = #{newretailpurcprice}</if>
+            <if test="saleprice != null "> and saleprice = #{saleprice}</if>
+            <if test="unit != null  and unit != ''"> and unit = #{unit}</if>
+            <if test="retailunit != null  and retailunit != ''"> and retailunit = #{retailunit}</if>
+            <if test="retailrate != null "> and retailrate = #{retailrate}</if>
+            <if test="retailprice != null "> and retailprice = #{retailprice}</if>
+            <if test="minsaleprice != null "> and minsaleprice = #{minsaleprice}</if>
+            <if test="stkqty != null "> and stkqty = #{stkqty}</if>
+            <if test="retailstkqty != null "> and retailstkqty = #{retailstkqty}</if>
+            <if test="memberprice != null "> and memberprice = #{memberprice}</if>
+            <if test="oprice != null "> and oprice = #{oprice}</if>
+            <if test="spcpricefdate != null "> and spcpricefdate = #{spcpricefdate}</if>
+            <if test="spcpricetdate != null "> and spcpricetdate = #{spcpricetdate}</if>
+            <if test="dayspcprice != null "> and dayspcprice = #{dayspcprice}</if>
+            <if test="dayspclmtqty != null "> and dayspclmtqty = #{dayspclmtqty}</if>
+            <if test="timespcstart != null  and timespcstart != ''"> and timespcstart = #{timespcstart}</if>
+            <if test="timespcend != null  and timespcend != ''"> and timespcend = #{timespcend}</if>
+            <if test="timeprice != null "> and timeprice = #{timeprice}</if>
+            <if test="timespclmtqty != null "> and timespclmtqty = #{timespclmtqty}</if>
+            <if test="purcperiod != null "> and purcperiod = #{purcperiod}</if>
+            <if test="minpurcqty != null "> and minpurcqty = #{minpurcqty}</if>
+            <if test="maxstcqty != null "> and maxstcqty = #{maxstcqty}</if>
+            <if test="minstcqty != null "> and minstcqty = #{minstcqty}</if>
+            <if test="stkno != null  and stkno != ''"> and stkno = #{stkno}</if>
+            <if test="shelfno != null  and shelfno != ''"> and shelfno = #{shelfno}</if>
+            <if test="lmtpurcqty != null "> and lmtpurcqty = #{lmtpurcqty}</if>
+            <if test="graderate != null "> and graderate = #{graderate}</if>
+            <if test="commmethod != null "> and commmethod = #{commmethod}</if>
+            <if test="commqty != null "> and commqty = #{commqty}</if>
+            <if test="isfavourable != null "> and isfavourable = #{isfavourable}</if>
+            <if test="rcpdrgtype != null "> and rcpdrgtype = #{rcpdrgtype}</if>
+            <if test="sbno != null  and sbno != ''"> and sbno = #{sbno}</if>
+            <if test="ybdrgtype != null "> and ybdrgtype = #{ybdrgtype}</if>
+            <if test="regno != null  and regno != ''"> and regno = #{regno}</if>
+            <if test="prdctionlcsno != null  and prdctionlcsno != ''"> and prdctionlcsno = #{prdctionlcsno}</if>
+            <if test="regmarks != null  and regmarks != ''"> and regmarks = #{regmarks}</if>
+            <if test="chkrpt != null  and chkrpt != ''"> and chkrpt = #{chkrpt}</if>
+            <if test="inpart != null  and inpart != ''"> and inpart = #{inpart}</if>
+            <if test="storagecdtion != null "> and storagecdtion = #{storagecdtion}</if>
+            <if test="ischinareame != null "> and ischinareame = #{ischinareame}</if>
+            <if test="isfirstapvtable != null "> and isfirstapvtable = #{isfirstapvtable}</if>
+            <if test="rxtype != null  and rxtype != ''"> and rxtype = #{rxtype}</if>
+            <if test="curingway != null "> and curingway = #{curingway}</if>
+            <if test="state != null "> and state = #{state}</if>
+            <if test="maintanceflag != null "> and maintanceflag = #{maintanceflag}</if>
+            <if test="minunit != null  and minunit != ''"> and minunit = #{minunit}</if>
+            <if test="minunitcount != null "> and minunitcount = #{minunitcount}</if>
+            <if test="convertrate != null "> and convertrate = #{convertrate}</if>
+            <if test="addtype != null "> and addtype = #{addtype}</if>
+            <if test="hasretailtrd != null "> and hasretailtrd = #{hasretailtrd}</if>
+            <if test="basestyle != null  and basestyle != ''"> and basestyle = #{basestyle}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="edittime != null "> and edittime = #{edittime}</if>
+            <if test="edituserid != null "> and edituserid = #{edituserid}</if>
+            <if test="editusername != null  and editusername != ''">
+                AND editusername like concat(concat('%', #{editusername}), '%')
+            </if>
+            <if test="montype != null  and montype != ''"> and montype = #{montype}</if>
+            <if test="chkno != null  and chkno != ''"> and chkno = #{chkno}</if>
+            <if test="isdiscount != null "> and isdiscount = #{isdiscount}</if>
+            <if test="specialoffervalue != null "> and specialoffervalue = #{specialoffervalue}</if>
+            <if test="specialofferlist != null  and specialofferlist != ''"> and specialofferlist = #{specialofferlist}</if>
+            <if test="specialdrgtype != null "> and specialdrgtype = #{specialdrgtype}</if>
+            <if test="isupdateBms != null "> and isupdate_bms = #{isupdateBms}</if>
+            <if test="abcstate != null  and abcstate != ''"> and abcstate = #{abcstate}</if>
+            <if test="apvnovalidity != null "> and apvnovalidity = #{apvnovalidity}</if>
+            <if test="incompatibility != null  and incompatibility != ''"> and incompatibility = #{incompatibility}</if>
+            <if test="fixedprice != null "> and fixedprice = #{fixedprice}</if>
+            <if test="cost != null "> and cost = #{cost}</if>
+            <if test="retailcost != null "> and retailcost = #{retailcost}</if>
+            <if test="projectcode != null  and projectcode != ''"> and projectcode = #{projectcode}</if>
+            <if test="isonlinetrading != null "> and isonlinetrading = #{isonlinetrading}</if>
+            <if test="ismoncode != null "> and ismoncode = #{ismoncode}</if>
+            <if test="holder != null  and holder != ''"> and holder = #{holder}</if>
+            <if test="isupmath != null "> and isupmath = #{isupmath}</if>
+            <if test="chronicprice != null "> and chronicprice = #{chronicprice}</if>
+        </where>
+    </select>
+
+</mapper>

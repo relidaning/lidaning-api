@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.lidaning.api.jxc.mapper.JxcGspDrugrecallmainMapper">
+
+    <resultMap type="JxcGspDrugrecallmain" id="JxcGspDrugrecallmainResult">
+        <result property="drno"    column="drno"    />
+        <result property="drdate"    column="drdate"    />
+        <result property="goodname"    column="goodname"    />
+        <result property="style"    column="style"    />
+        <result property="unit"    column="unit"    />
+        <result property="factory"    column="factory"    />
+        <result property="batchno"    column="batchno"    />
+        <result property="reason"    column="reason"    />
+        <result property="drlevel"    column="drlevel"    />
+        <result property="methods"    column="methods"    />
+        <result property="quantity"    column="quantity"    />
+        <result property="id"    column="id"    />
+        <result property="synctime"    column="synctime"    />
+        <result property="substatus"    column="substatus"    />
+        <result property="failreason"    column="failreason"    />
+    </resultMap>
+
+    <sql id="selectJxcGspDrugrecallmainVo">
+        select drno, drdate, goodname, style, unit, factory, batchno, reason, drlevel, methods, quantity, id, synctime, substatus, failreason from jxc_gsp_drugrecallmain
+    </sql>
+
+    <select id="selectJxcGspDrugrecallmainList" parameterType="JxcGspDrugrecallmain" resultMap="JxcGspDrugrecallmainResult">
+        <include refid="selectJxcGspDrugrecallmainVo"/>
+        <where>
+            <if test="drno != null  and drno != ''"> and drno = #{drno}</if>
+            <if test="drdate != null "> and drdate = #{drdate}</if>
+            <if test="goodname != null  and goodname != ''">
+                 AND goodname like concat(concat('%', #{goodname}), '%')
+            </if>
+            <if test="style != null  and style != ''"> and style = #{style}</if>
+            <if test="unit != null  and unit != ''"> and unit = #{unit}</if>
+            <if test="factory != null  and factory != ''"> and factory = #{factory}</if>
+            <if test="batchno != null  and batchno != ''"> and batchno = #{batchno}</if>
+            <if test="reason != null  and reason != ''"> and reason = #{reason}</if>
+            <if test="drlevel != null  and drlevel != ''"> and drlevel = #{drlevel}</if>
+            <if test="methods != null  and methods != ''"> and methods = #{methods}</if>
+            <if test="quantity != null "> and quantity = #{quantity}</if>
+            <if test="synctime != null "> and synctime = #{synctime}</if>
+            <if test="substatus != null  and substatus != ''"> and substatus = #{substatus}</if>
+            <if test="failreason != null  and failreason != ''"> and failreason = #{failreason}</if>
+        </where>
+    </select>
+
+    <select id="selectJxcGspDrugrecallmainById" parameterType="String" resultMap="JxcGspDrugrecallmainResult">
+        <include refid="selectJxcGspDrugrecallmainVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertJxcGspDrugrecallmain" parameterType="JxcGspDrugrecallmain">
+        insert into jxc_gsp_drugrecallmain
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="drno != null and drno != ''">drno,</if>
+            <if test="drdate != null">drdate,</if>
+            <if test="goodname != null">goodname,</if>
+            <if test="style != null">style,</if>
+            <if test="unit != null">unit,</if>
+            <if test="factory != null">factory,</if>
+            <if test="batchno != null">batchno,</if>
+            <if test="reason != null">reason,</if>
+            <if test="drlevel != null">drlevel,</if>
+            <if test="methods != null">methods,</if>
+            <if test="quantity != null">quantity,</if>
+            <if test="id != null">id,</if>
+            <if test="synctime != null">synctime,</if>
+            <if test="substatus != null">substatus,</if>
+            <if test="failreason != null">failreason,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="drno != null and drno != ''">#{drno},</if>
+            <if test="drdate != null">#{drdate},</if>
+            <if test="goodname != null">#{goodname},</if>
+            <if test="style != null">#{style},</if>
+            <if test="unit != null">#{unit},</if>
+            <if test="factory != null">#{factory},</if>
+            <if test="batchno != null">#{batchno},</if>
+            <if test="reason != null">#{reason},</if>
+            <if test="drlevel != null">#{drlevel},</if>
+            <if test="methods != null">#{methods},</if>
+            <if test="quantity != null">#{quantity},</if>
+            <if test="id != null">#{id},</if>
+            <if test="synctime != null">#{synctime},</if>
+            <if test="substatus != null">#{substatus},</if>
+            <if test="failreason != null">#{failreason},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJxcGspDrugrecallmain" parameterType="JxcGspDrugrecallmain">
+        update jxc_gsp_drugrecallmain
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="drno != null and drno != ''">drno = #{drno},</if>
+            <if test="drdate != null">drdate = #{drdate},</if>
+            <if test="goodname != null">goodname = #{goodname},</if>
+            <if test="style != null">style = #{style},</if>
+            <if test="unit != null">unit = #{unit},</if>
+            <if test="factory != null">factory = #{factory},</if>
+            <if test="batchno != null">batchno = #{batchno},</if>
+            <if test="reason != null">reason = #{reason},</if>
+            <if test="drlevel != null">drlevel = #{drlevel},</if>
+            <if test="methods != null">methods = #{methods},</if>
+            <if test="quantity != null">quantity = #{quantity},</if>
+            <if test="synctime != null">synctime = #{synctime},</if>
+            <if test="substatus != null">substatus = #{substatus},</if>
+            <if test="failreason != null">failreason = #{failreason},</if>
+        </trim>
+        where id = #{id}
+    </update>
+    <update id="updateJxcGspDrugrecallmainByPrimaryKey" parameterType="JxcGspDrugrecallmain">
+        update jxc_gsp_drugrecallmain set
+           drno = #{drno},
+           drdate = #{drdate},
+           goodname = #{goodname},
+           style = #{style},
+           unit = #{unit},
+           factory = #{factory},
+           batchno = #{batchno},
+           reason = #{reason},
+           drlevel = #{drlevel},
+           methods = #{methods},
+           quantity = #{quantity},
+           synctime = #{synctime},
+           substatus = #{substatus},
+           failreason = #{failreason}
+        where id = #{id}
+    </update>
+    <delete id="deleteJxcGspDrugrecallmainById" parameterType="String">
+        delete from jxc_gsp_drugrecallmain where id = #{id}
+    </delete>
+
+    <delete id="deleteJxcGspDrugrecallmainByIds" parameterType="String">
+        delete from jxc_gsp_drugrecallmain where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="selectJxcGspDrugrecallmainCount" parameterType="JxcGspDrugrecallmain" resultType="java.lang.Integer">
+        select count(1) from jxc_gsp_drugrecallmain
+        <where>
+            <if test="drno != null  and drno != ''"> and drno = #{drno}</if>
+            <if test="drdate != null "> and drdate = #{drdate}</if>
+            <if test="goodname != null  and goodname != ''">
+                AND goodname like concat(concat('%', #{goodname}), '%')
+            </if>
+            <if test="style != null  and style != ''"> and style = #{style}</if>
+            <if test="unit != null  and unit != ''"> and unit = #{unit}</if>
+            <if test="factory != null  and factory != ''"> and factory = #{factory}</if>
+            <if test="batchno != null  and batchno != ''"> and batchno = #{batchno}</if>
+            <if test="reason != null  and reason != ''"> and reason = #{reason}</if>
+            <if test="drlevel != null  and drlevel != ''"> and drlevel = #{drlevel}</if>
+            <if test="methods != null  and methods != ''"> and methods = #{methods}</if>
+            <if test="quantity != null "> and quantity = #{quantity}</if>
+            <if test="synctime != null "> and synctime = #{synctime}</if>
+            <if test="substatus != null  and substatus != ''"> and substatus = #{substatus}</if>
+            <if test="failreason != null  and failreason != ''"> and failreason = #{failreason}</if>
+        </where>
+    </select>
+
+</mapper>

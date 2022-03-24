@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.lidaning.api.jxc.mapper.JxcTrdLolistMapper">
+
+    <resultMap type="JxcTrdLolist" id="JxcTrdLolistResult">
+        <result property="id"    column="id"    />
+        <result property="lono"    column="lono"    />
+        <result property="entertime"    column="entertime"    />
+        <result property="goodcode"    column="goodcode"    />
+        <result property="goodstdcode"    column="goodstdcode"    />
+        <result property="goodtype"    column="goodtype"    />
+        <result property="drugname"    column="drugname"    />
+        <result property="goodname"    column="goodname"    />
+        <result property="factory"    column="factory"    />
+        <result property="batchno"    column="batchno"    />
+        <result property="mftdate"    column="mftdate"    />
+        <result property="usefuldate"    column="usefuldate"    />
+        <result property="lotype"    column="lotype"    />
+        <result property="quantity"    column="quantity"    />
+        <result property="unit"    column="unit"    />
+        <result property="price"    column="price"    />
+        <result property="isretailunit"    column="isretailunit"    />
+        <result property="totalamt"    column="totalamt"    />
+        <result property="loreason"    column="loreason"    />
+        <result property="lorept"    column="lorept"    />
+        <result property="saledeptopinion"    column="saledeptopinion"    />
+        <result property="qltydeptopinion"    column="qltydeptopinion"    />
+        <result property="fdeptopinion"    column="fdeptopinion"    />
+        <result property="mngeropinion"    column="mngeropinion"    />
+        <result property="mngerid"    column="mngerid"    />
+        <result property="mngername"    column="mngername"    />
+        <result property="masterid"    column="masterid"    />
+        <result property="mastername"    column="mastername"    />
+        <result property="stkerid"    column="stkerid"    />
+        <result property="stkername"    column="stkername"    />
+        <result property="ispass"    column="ispass"    />
+        <result property="chkdate"    column="chkdate"    />
+        <result property="moncode"    column="moncode"    />
+        <result property="packlevel"    column="packlevel"    />
+        <result property="packrate"    column="packrate"    />
+        <result property="chkstate"    column="chkstate"    />
+        <result property="firstchktime"    column="firstchktime"    />
+        <result property="adjsubmittime"    column="adjsubmittime"    />
+        <result property="rptstatus"    column="rptstatus"    />
+        <result property="rptfilename"    column="rptfilename"    />
+        <result property="gbcode"    column="gbcode"    />
+        <result property="minunit"    column="minunit"    />
+        <result property="minunitcount"    column="minunitcount"    />
+        <result property="convertrate"    column="convertrate"    />
+        <result property="rptbeforestatus"    column="rptbeforestatus"    />
+        <result property="mftdateex"    column="mftdateex"    />
+        <result property="usefuldateex"    column="usefuldateex"    />
+        <result property="style"    column="style"    />
+        <result property="createtime"    column="createtime"    />
+        <result property="retailrate"    column="retailrate"    />
+        <result property="doestype"    column="doestype"    />
+        <result property="lorepterid"    column="lorepterid"    />
+        <result property="saledeptopinionerid"    column="saledeptopinionerid"    />
+        <result property="qltydeptopinionerid"    column="qltydeptopinionerid"    />
+        <result property="fdeptopinionerid"    column="fdeptopinionerid"    />
+        <result property="lorepter"    column="lorepter"    />
+        <result property="saledeptopinioner"    column="saledeptopinioner"    />
+        <result property="qltydeptopinioner"    column="qltydeptopinioner"    />
+        <result property="fdeptopinioner"    column="fdeptopinioner"    />
+        <result property="synctime"    column="synctime"    />
+        <result property="substatus"    column="substatus"    />
+        <result property="failreason"    column="failreason"    />
+        <result property="pid"    column="pid"    />
+    </resultMap>
+
+    <sql id="selectJxcTrdLolistVo">
+        select id, lono, entertime, goodcode, goodstdcode, goodtype, drugname, goodname, factory, batchno, mftdate, usefuldate, lotype, quantity, unit, price, isretailunit, totalamt, loreason, lorept, saledeptopinion, qltydeptopinion, fdeptopinion, mngeropinion, mngerid, mngername, masterid, mastername, stkerid, stkername, ispass, chkdate, moncode, packlevel, packrate, chkstate, firstchktime, adjsubmittime, rptstatus, rptfilename, gbcode, minunit, minunitcount, convertrate, rptbeforestatus, mftdateex, usefuldateex, style, createtime, retailrate, doestype, lorepterid, saledeptopinionerid, qltydeptopinionerid, fdeptopinionerid, lorepter, saledeptopinioner, qltydeptopinioner, fdeptopinioner, synctime, substatus, failreason, pid from jxc_trd_lolist
+    </sql>
+
+    <select id="selectJxcTrdLolistList" parameterType="JxcTrdLolist" resultMap="JxcTrdLolistResult">
+        <include refid="selectJxcTrdLolistVo"/>
+        <where>
+            <if test="lono != null  and lono != ''"> and lono = #{lono}</if>
+            <if test="entertime != null "> and entertime = #{entertime}</if>
+            <if test="goodcode != null  and goodcode != ''"> and goodcode = #{goodcode}</if>
+            <if test="goodstdcode != null  and goodstdcode != ''"> and goodstdcode = #{goodstdcode}</if>
+            <if test="goodtype != null  and goodtype != ''"> and goodtype = #{goodtype}</if>
+            <if test="drugname != null  and drugname != ''">
+                 AND drugname like concat(concat('%', #{drugname}), '%')
+            </if>
+            <if test="goodname != null  and goodname != ''">
+                 AND goodname like concat(concat('%', #{goodname}), '%')
+            </if>
+            <if test="factory != null  and factory != ''"> and factory = #{factory}</if>
+            <if test="batchno != null  and batchno != ''"> and batchno = #{batchno}</if>
+            <if test="mftdate != null "> and mftdate = #{mftdate}</if>
+            <if test="usefuldate != null "> and usefuldate = #{usefuldate}</if>
+            <if test="lotype != null "> and lotype = #{lotype}</if>
+            <if test="quantity != null "> and quantity = #{quantity}</if>
+            <if test="unit != null  and unit != ''"> and unit = #{unit}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="isretailunit != null "> and isretailunit = #{isretailunit}</if>
+            <if test="totalamt != null "> and totalamt = #{totalamt}</if>
+            <if test="loreason != null  and loreason != ''"> and loreason = #{loreason}</if>
+            <if test="lorept != null  and lorept != ''"> and lorept = #{lorept}</if>
+            <if test="saledeptopinion != null  and saledeptopinion != ''"> and saledeptopinion = #{saledeptopinion}</if>
+            <if test="qltydeptopinion != null  and qltydeptopinion != ''"> and qltydeptopinion = #{qltydeptopinion}</if>
+            <if test="fdeptopinion != null  and fdeptopinion != ''"> and fdeptopinion = #{fdeptopinion}</if>
+            <if test="mngeropinion != null  and mngeropinion != ''"> and mngeropinion = #{mngeropinion}</if>
+            <if test="mngerid != null "> and mngerid = #{mngerid}</if>
+            <if test="mngername != null  and mngername != ''">
+                 AND mngername like concat(concat('%', #{mngername}), '%')
+            </if>
+            <if test="masterid != null "> and masterid = #{masterid}</if>
+            <if test="mastername != null  and mastername != ''">
+                 AND mastername like concat(concat('%', #{mastername}), '%')
+            </if>
+            <if test="stkerid != null "> and stkerid = #{stkerid}</if>
+            <if test="stkername != null  and stkername != ''">
+                 AND stkername like concat(concat('%', #{stkername}), '%')
+            </if>
+            <if test="ispass != null "> and ispass = #{ispass}</if>
+            <if test="chkdate != null "> and chkdate = #{chkdate}</if>
+            <if test="moncode != null  and moncode != ''"> and moncode = #{moncode}</if>
+            <if test="packlevel != null "> and packlevel = #{packlevel}</if>
+            <if test="packrate != null "> and packrate = #{packrate}</if>
+            <if test="chkstate != null "> and chkstate = #{chkstate}</if>
+            <if test="firstchktime != null "> and firstchktime = #{firstchktime}</if>
+            <if test="adjsubmittime != null "> and adjsubmittime = #{adjsubmittime}</if>
+            <if test="rptstatus != null "> and rptstatus = #{rptstatus}</if>
+            <if test="rptfilename != null  and rptfilename != ''">
+                 AND rptfilename like concat(concat('%', #{rptfilename}), '%')
+            </if>
+            <if test="gbcode != null  and gbcode != ''"> and gbcode = #{gbcode}</if>
+            <if test="minunit != null  and minunit != ''"> and minunit = #{minunit}</if>
+            <if test="minunitcount != null "> and minunitcount = #{minunitcount}</if>
+            <if test="convertrate != null "> and convertrate = #{convertrate}</if>
+            <if test="rptbeforestatus != null "> and rptbeforestatus = #{rptbeforestatus}</if>
+            <if test="mftdateex != null  and mftdateex != ''"> and mftdateex = #{mftdateex}</if>
+            <if test="usefuldateex != null  and usefuldateex != ''"> and usefuldateex = #{usefuldateex}</if>
+            <if test="style != null  and style != ''"> and style = #{style}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="retailrate != null "> and retailrate = #{retailrate}</if>
+            <if test="doestype != null  and doestype != ''"> and doestype = #{doestype}</if>
+            <if test="lorepterid != null "> and lorepterid = #{lorepterid}</if>
+            <if test="saledeptopinionerid != null "> and saledeptopinionerid = #{saledeptopinionerid}</if>
+            <if test="qltydeptopinionerid != null "> and qltydeptopinionerid = #{qltydeptopinionerid}</if>
+            <if test="fdeptopinionerid != null "> and fdeptopinionerid = #{fdeptopinionerid}</if>
+            <if test="lorepter != null  and lorepter != ''"> and lorepter = #{lorepter}</if>
+            <if test="saledeptopinioner != null  and saledeptopinioner != ''"> and saledeptopinioner = #{saledeptopinioner}</if>
+            <if test="qltydeptopinioner != null  and qltydeptopinioner != ''"> and qltydeptopinioner = #{qltydeptopinioner}</if>
+            <if test="fdeptopinioner != null  and fdeptopinioner != ''"> and fdeptopinioner = #{fdeptopinioner}</if>
+            <if test="synctime != null "> and synctime = #{synctime}</if>
+            <if test="substatus != null  and substatus != ''"> and substatus = #{substatus}</if>
+            <if test="failreason != null  and failreason != ''"> and failreason = #{failreason}</if>
+            <if test="pid != null  and pid != ''"> and pid = #{pid}</if>
+        </where>
+    </select>
+
+    <select id="selectJxcTrdLolistById" parameterType="String" resultMap="JxcTrdLolistResult">
+        <include refid="selectJxcTrdLolistVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertJxcTrdLolist" parameterType="JxcTrdLolist">
+        insert into jxc_trd_lolist
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="lono != null">lono,</if>
+            <if test="entertime != null">entertime,</if>
+            <if test="goodcode != null">goodcode,</if>
+            <if test="goodstdcode != null">goodstdcode,</if>
+            <if test="goodtype != null">goodtype,</if>
+            <if test="drugname != null">drugname,</if>
+            <if test="goodname != null">goodname,</if>
+            <if test="factory != null">factory,</if>
+            <if test="batchno != null">batchno,</if>
+            <if test="mftdate != null">mftdate,</if>
+            <if test="usefuldate != null">usefuldate,</if>
+            <if test="lotype != null">lotype,</if>
+            <if test="quantity != null">quantity,</if>
+            <if test="unit != null">unit,</if>
+            <if test="price != null">price,</if>
+            <if test="isretailunit != null">isretailunit,</if>
+            <if test="totalamt != null">totalamt,</if>
+            <if test="loreason != null">loreason,</if>
+            <if test="lorept != null">lorept,</if>
+            <if test="saledeptopinion != null">saledeptopinion,</if>
+            <if test="qltydeptopinion != null">qltydeptopinion,</if>
+            <if test="fdeptopinion != null">fdeptopinion,</if>
+            <if test="mngeropinion != null">mngeropinion,</if>
+            <if test="mngerid != null">mngerid,</if>
+            <if test="mngername != null">mngername,</if>
+            <if test="masterid != null">masterid,</if>
+            <if test="mastername != null">mastername,</if>
+            <if test="stkerid != null">stkerid,</if>
+            <if test="stkername != null">stkername,</if>
+            <if test="ispass != null">ispass,</if>
+            <if test="chkdate != null">chkdate,</if>
+            <if test="moncode != null">moncode,</if>
+            <if test="packlevel != null">packlevel,</if>
+            <if test="packrate != null">packrate,</if>
+            <if test="chkstate != null">chkstate,</if>
+            <if test="firstchktime != null">firstchktime,</if>
+            <if test="adjsubmittime != null">adjsubmittime,</if>
+            <if test="rptstatus != null">rptstatus,</if>
+            <if test="rptfilename != null">rptfilename,</if>
+            <if test="gbcode != null">gbcode,</if>
+            <if test="minunit != null">minunit,</if>
+            <if test="minunitcount != null">minunitcount,</if>
+            <if test="convertrate != null">convertrate,</if>
+            <if test="rptbeforestatus != null">rptbeforestatus,</if>
+            <if test="mftdateex != null">mftdateex,</if>
+            <if test="usefuldateex != null">usefuldateex,</if>
+            <if test="style != null">style,</if>
+            <if test="createtime != null">createtime,</if>
+            <if test="retailrate != null">retailrate,</if>
+            <if test="doestype != null">doestype,</if>
+            <if test="lorepterid != null">lorepterid,</if>
+            <if test="saledeptopinionerid != null">saledeptopinionerid,</if>
+            <if test="qltydeptopinionerid != null">qltydeptopinionerid,</if>
+            <if test="fdeptopinionerid != null">fdeptopinionerid,</if>
+            <if test="lorepter != null">lorepter,</if>
+            <if test="saledeptopinioner != null">saledeptopinioner,</if>
+            <if test="qltydeptopinioner != null">qltydeptopinioner,</if>
+            <if test="fdeptopinioner != null">fdeptopinioner,</if>
+            <if test="synctime != null">synctime,</if>
+            <if test="substatus != null">substatus,</if>
+            <if test="failreason != null">failreason,</if>
+            <if test="pid != null">pid,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="lono != null">#{lono},</if>
+            <if test="entertime != null">#{entertime},</if>
+            <if test="goodcode != null">#{goodcode},</if>
+            <if test="goodstdcode != null">#{goodstdcode},</if>
+            <if test="goodtype != null">#{goodtype},</if>
+            <if test="drugname != null">#{drugname},</if>
+            <if test="goodname != null">#{goodname},</if>
+            <if test="factory != null">#{factory},</if>
+            <if test="batchno != null">#{batchno},</if>
+            <if test="mftdate != null">#{mftdate},</if>
+            <if test="usefuldate != null">#{usefuldate},</if>
+            <if test="lotype != null">#{lotype},</if>
+            <if test="quantity != null">#{quantity},</if>
+            <if test="unit != null">#{unit},</if>
+            <if test="price != null">#{price},</if>
+            <if test="isretailunit != null">#{isretailunit},</if>
+            <if test="totalamt != null">#{totalamt},</if>
+            <if test="loreason != null">#{loreason},</if>
+            <if test="lorept != null">#{lorept},</if>
+            <if test="saledeptopinion != null">#{saledeptopinion},</if>
+            <if test="qltydeptopinion != null">#{qltydeptopinion},</if>
+            <if test="fdeptopinion != null">#{fdeptopinion},</if>
+            <if test="mngeropinion != null">#{mngeropinion},</if>
+            <if test="mngerid != null">#{mngerid},</if>
+            <if test="mngername != null">#{mngername},</if>
+            <if test="masterid != null">#{masterid},</if>
+            <if test="mastername != null">#{mastername},</if>
+            <if test="stkerid != null">#{stkerid},</if>
+            <if test="stkername != null">#{stkername},</if>
+            <if test="ispass != null">#{ispass},</if>
+            <if test="chkdate != null">#{chkdate},</if>
+            <if test="moncode != null">#{moncode},</if>
+            <if test="packlevel != null">#{packlevel},</if>
+            <if test="packrate != null">#{packrate},</if>
+            <if test="chkstate != null">#{chkstate},</if>
+            <if test="firstchktime != null">#{firstchktime},</if>
+            <if test="adjsubmittime != null">#{adjsubmittime},</if>
+            <if test="rptstatus != null">#{rptstatus},</if>
+            <if test="rptfilename != null">#{rptfilename},</if>
+            <if test="gbcode != null">#{gbcode},</if>
+            <if test="minunit != null">#{minunit},</if>
+            <if test="minunitcount != null">#{minunitcount},</if>
+            <if test="convertrate != null">#{convertrate},</if>
+            <if test="rptbeforestatus != null">#{rptbeforestatus},</if>
+            <if test="mftdateex != null">#{mftdateex},</if>
+            <if test="usefuldateex != null">#{usefuldateex},</if>
+            <if test="style != null">#{style},</if>
+            <if test="createtime != null">#{createtime},</if>
+            <if test="retailrate != null">#{retailrate},</if>
+            <if test="doestype != null">#{doestype},</if>
+            <if test="lorepterid != null">#{lorepterid},</if>
+            <if test="saledeptopinionerid != null">#{saledeptopinionerid},</if>
+            <if test="qltydeptopinionerid != null">#{qltydeptopinionerid},</if>
+            <if test="fdeptopinionerid != null">#{fdeptopinionerid},</if>
+            <if test="lorepter != null">#{lorepter},</if>
+            <if test="saledeptopinioner != null">#{saledeptopinioner},</if>
+            <if test="qltydeptopinioner != null">#{qltydeptopinioner},</if>
+            <if test="fdeptopinioner != null">#{fdeptopinioner},</if>
+            <if test="synctime != null">#{synctime},</if>
+            <if test="substatus != null">#{substatus},</if>
+            <if test="failreason != null">#{failreason},</if>
+            <if test="pid != null">#{pid},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJxcTrdLolist" parameterType="JxcTrdLolist">
+        update jxc_trd_lolist
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="lono != null">lono = #{lono},</if>
+            <if test="entertime != null">entertime = #{entertime},</if>
+            <if test="goodcode != null">goodcode = #{goodcode},</if>
+            <if test="goodstdcode != null">goodstdcode = #{goodstdcode},</if>
+            <if test="goodtype != null">goodtype = #{goodtype},</if>
+            <if test="drugname != null">drugname = #{drugname},</if>
+            <if test="goodname != null">goodname = #{goodname},</if>
+            <if test="factory != null">factory = #{factory},</if>
+            <if test="batchno != null">batchno = #{batchno},</if>
+            <if test="mftdate != null">mftdate = #{mftdate},</if>
+            <if test="usefuldate != null">usefuldate = #{usefuldate},</if>
+            <if test="lotype != null">lotype = #{lotype},</if>
+            <if test="quantity != null">quantity = #{quantity},</if>
+            <if test="unit != null">unit = #{unit},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="isretailunit != null">isretailunit = #{isretailunit},</if>
+            <if test="totalamt != null">totalamt = #{totalamt},</if>
+            <if test="loreason != null">loreason = #{loreason},</if>
+            <if test="lorept != null">lorept = #{lorept},</if>
+            <if test="saledeptopinion != null">saledeptopinion = #{saledeptopinion},</if>
+            <if test="qltydeptopinion != null">qltydeptopinion = #{qltydeptopinion},</if>
+            <if test="fdeptopinion != null">fdeptopinion = #{fdeptopinion},</if>
+            <if test="mngeropinion != null">mngeropinion = #{mngeropinion},</if>
+            <if test="mngerid != null">mngerid = #{mngerid},</if>
+            <if test="mngername != null">mngername = #{mngername},</if>
+            <if test="masterid != null">masterid = #{masterid},</if>
+            <if test="mastername != null">mastername = #{mastername},</if>
+            <if test="stkerid != null">stkerid = #{stkerid},</if>
+            <if test="stkername != null">stkername = #{stkername},</if>
+            <if test="ispass != null">ispass = #{ispass},</if>
+            <if test="chkdate != null">chkdate = #{chkdate},</if>
+            <if test="moncode != null">moncode = #{moncode},</if>
+            <if test="packlevel != null">packlevel = #{packlevel},</if>
+            <if test="packrate != null">packrate = #{packrate},</if>
+            <if test="chkstate != null">chkstate = #{chkstate},</if>
+            <if test="firstchktime != null">firstchktime = #{firstchktime},</if>
+            <if test="adjsubmittime != null">adjsubmittime = #{adjsubmittime},</if>
+            <if test="rptstatus != null">rptstatus = #{rptstatus},</if>
+            <if test="rptfilename != null">rptfilename = #{rptfilename},</if>
+            <if test="gbcode != null">gbcode = #{gbcode},</if>
+            <if test="minunit != null">minunit = #{minunit},</if>
+            <if test="minunitcount != null">minunitcount = #{minunitcount},</if>
+            <if test="convertrate != null">convertrate = #{convertrate},</if>
+            <if test="rptbeforestatus != null">rptbeforestatus = #{rptbeforestatus},</if>
+            <if test="mftdateex != null">mftdateex = #{mftdateex},</if>
+            <if test="usefuldateex != null">usefuldateex = #{usefuldateex},</if>
+            <if test="style != null">style = #{style},</if>
+            <if test="createtime != null">createtime = #{createtime},</if>
+            <if test="retailrate != null">retailrate = #{retailrate},</if>
+            <if test="doestype != null">doestype = #{doestype},</if>
+            <if test="lorepterid != null">lorepterid = #{lorepterid},</if>
+            <if test="saledeptopinionerid != null">saledeptopinionerid = #{saledeptopinionerid},</if>
+            <if test="qltydeptopinionerid != null">qltydeptopinionerid = #{qltydeptopinionerid},</if>
+            <if test="fdeptopinionerid != null">fdeptopinionerid = #{fdeptopinionerid},</if>
+            <if test="lorepter != null">lorepter = #{lorepter},</if>
+            <if test="saledeptopinioner != null">saledeptopinioner = #{saledeptopinioner},</if>
+            <if test="qltydeptopinioner != null">qltydeptopinioner = #{qltydeptopinioner},</if>
+            <if test="fdeptopinioner != null">fdeptopinioner = #{fdeptopinioner},</if>
+            <if test="synctime != null">synctime = #{synctime},</if>
+            <if test="substatus != null">substatus = #{substatus},</if>
+            <if test="failreason != null">failreason = #{failreason},</if>
+            <if test="pid != null">pid = #{pid},</if>
+        </trim>
+        where id = #{id}
+    </update>
+    <update id="updateJxcTrdLolistByPrimaryKey" parameterType="JxcTrdLolist">
+        update jxc_trd_lolist set
+           lono = #{lono},
+           entertime = #{entertime},
+           goodcode = #{goodcode},
+           goodstdcode = #{goodstdcode},
+           goodtype = #{goodtype},
+           drugname = #{drugname},
+           goodname = #{goodname},
+           factory = #{factory},
+           batchno = #{batchno},
+           mftdate = #{mftdate},
+           usefuldate = #{usefuldate},
+           lotype = #{lotype},
+           quantity = #{quantity},
+           unit = #{unit},
+           price = #{price},
+           isretailunit = #{isretailunit},
+           totalamt = #{totalamt},
+           loreason = #{loreason},
+           lorept = #{lorept},
+           saledeptopinion = #{saledeptopinion},
+           qltydeptopinion = #{qltydeptopinion},
+           fdeptopinion = #{fdeptopinion},
+           mngeropinion = #{mngeropinion},
+           mngerid = #{mngerid},
+           mngername = #{mngername},
+           masterid = #{masterid},
+           mastername = #{mastername},
+           stkerid = #{stkerid},
+           stkername = #{stkername},
+           ispass = #{ispass},
+           chkdate = #{chkdate},
+           moncode = #{moncode},
+           packlevel = #{packlevel},
+           packrate = #{packrate},
+           chkstate = #{chkstate},
+           firstchktime = #{firstchktime},
+           adjsubmittime = #{adjsubmittime},
+           rptstatus = #{rptstatus},
+           rptfilename = #{rptfilename},
+           gbcode = #{gbcode},
+           minunit = #{minunit},
+           minunitcount = #{minunitcount},
+           convertrate = #{convertrate},
+           rptbeforestatus = #{rptbeforestatus},
+           mftdateex = #{mftdateex},
+           usefuldateex = #{usefuldateex},
+           style = #{style},
+           createtime = #{createtime},
+           retailrate = #{retailrate},
+           doestype = #{doestype},
+           lorepterid = #{lorepterid},
+           saledeptopinionerid = #{saledeptopinionerid},
+           qltydeptopinionerid = #{qltydeptopinionerid},
+           fdeptopinionerid = #{fdeptopinionerid},
+           lorepter = #{lorepter},
+           saledeptopinioner = #{saledeptopinioner},
+           qltydeptopinioner = #{qltydeptopinioner},
+           fdeptopinioner = #{fdeptopinioner},
+           synctime = #{synctime},
+           substatus = #{substatus},
+           failreason = #{failreason},
+           pid = #{pid}
+        where id = #{id}
+    </update>
+    <delete id="deleteJxcTrdLolistById" parameterType="String">
+        delete from jxc_trd_lolist where id = #{id}
+    </delete>
+
+    <delete id="deleteJxcTrdLolistByIds" parameterType="String">
+        delete from jxc_trd_lolist where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="selectJxcTrdLolistCount" parameterType="JxcTrdLolist" resultType="java.lang.Integer">
+        select count(1) from jxc_trd_lolist
+        <where>
+            <if test="lono != null  and lono != ''"> and lono = #{lono}</if>
+            <if test="entertime != null "> and entertime = #{entertime}</if>
+            <if test="goodcode != null  and goodcode != ''"> and goodcode = #{goodcode}</if>
+            <if test="goodstdcode != null  and goodstdcode != ''"> and goodstdcode = #{goodstdcode}</if>
+            <if test="goodtype != null  and goodtype != ''"> and goodtype = #{goodtype}</if>
+            <if test="drugname != null  and drugname != ''">
+                AND drugname like concat(concat('%', #{drugname}), '%')
+            </if>
+            <if test="goodname != null  and goodname != ''">
+                AND goodname like concat(concat('%', #{goodname}), '%')
+            </if>
+            <if test="factory != null  and factory != ''"> and factory = #{factory}</if>
+            <if test="batchno != null  and batchno != ''"> and batchno = #{batchno}</if>
+            <if test="mftdate != null "> and mftdate = #{mftdate}</if>
+            <if test="usefuldate != null "> and usefuldate = #{usefuldate}</if>
+            <if test="lotype != null "> and lotype = #{lotype}</if>
+            <if test="quantity != null "> and quantity = #{quantity}</if>
+            <if test="unit != null  and unit != ''"> and unit = #{unit}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="isretailunit != null "> and isretailunit = #{isretailunit}</if>
+            <if test="totalamt != null "> and totalamt = #{totalamt}</if>
+            <if test="loreason != null  and loreason != ''"> and loreason = #{loreason}</if>
+            <if test="lorept != null  and lorept != ''"> and lorept = #{lorept}</if>
+            <if test="saledeptopinion != null  and saledeptopinion != ''"> and saledeptopinion = #{saledeptopinion}</if>
+            <if test="qltydeptopinion != null  and qltydeptopinion != ''"> and qltydeptopinion = #{qltydeptopinion}</if>
+            <if test="fdeptopinion != null  and fdeptopinion != ''"> and fdeptopinion = #{fdeptopinion}</if>
+            <if test="mngeropinion != null  and mngeropinion != ''"> and mngeropinion = #{mngeropinion}</if>
+            <if test="mngerid != null "> and mngerid = #{mngerid}</if>
+            <if test="mngername != null  and mngername != ''">
+                AND mngername like concat(concat('%', #{mngername}), '%')
+            </if>
+            <if test="masterid != null "> and masterid = #{masterid}</if>
+            <if test="mastername != null  and mastername != ''">
+                AND mastername like concat(concat('%', #{mastername}), '%')
+            </if>
+            <if test="stkerid != null "> and stkerid = #{stkerid}</if>
+            <if test="stkername != null  and stkername != ''">
+                AND stkername like concat(concat('%', #{stkername}), '%')
+            </if>
+            <if test="ispass != null "> and ispass = #{ispass}</if>
+            <if test="chkdate != null "> and chkdate = #{chkdate}</if>
+            <if test="moncode != null  and moncode != ''"> and moncode = #{moncode}</if>
+            <if test="packlevel != null "> and packlevel = #{packlevel}</if>
+            <if test="packrate != null "> and packrate = #{packrate}</if>
+            <if test="chkstate != null "> and chkstate = #{chkstate}</if>
+            <if test="firstchktime != null "> and firstchktime = #{firstchktime}</if>
+            <if test="adjsubmittime != null "> and adjsubmittime = #{adjsubmittime}</if>
+            <if test="rptstatus != null "> and rptstatus = #{rptstatus}</if>
+            <if test="rptfilename != null  and rptfilename != ''">
+                AND rptfilename like concat(concat('%', #{rptfilename}), '%')
+            </if>
+            <if test="gbcode != null  and gbcode != ''"> and gbcode = #{gbcode}</if>
+            <if test="minunit != null  and minunit != ''"> and minunit = #{minunit}</if>
+            <if test="minunitcount != null "> and minunitcount = #{minunitcount}</if>
+            <if test="convertrate != null "> and convertrate = #{convertrate}</if>
+            <if test="rptbeforestatus != null "> and rptbeforestatus = #{rptbeforestatus}</if>
+            <if test="mftdateex != null  and mftdateex != ''"> and mftdateex = #{mftdateex}</if>
+            <if test="usefuldateex != null  and usefuldateex != ''"> and usefuldateex = #{usefuldateex}</if>
+            <if test="style != null  and style != ''"> and style = #{style}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="retailrate != null "> and retailrate = #{retailrate}</if>
+            <if test="doestype != null  and doestype != ''"> and doestype = #{doestype}</if>
+            <if test="lorepterid != null "> and lorepterid = #{lorepterid}</if>
+            <if test="saledeptopinionerid != null "> and saledeptopinionerid = #{saledeptopinionerid}</if>
+            <if test="qltydeptopinionerid != null "> and qltydeptopinionerid = #{qltydeptopinionerid}</if>
+            <if test="fdeptopinionerid != null "> and fdeptopinionerid = #{fdeptopinionerid}</if>
+            <if test="lorepter != null  and lorepter != ''"> and lorepter = #{lorepter}</if>
+            <if test="saledeptopinioner != null  and saledeptopinioner != ''"> and saledeptopinioner = #{saledeptopinioner}</if>
+            <if test="qltydeptopinioner != null  and qltydeptopinioner != ''"> and qltydeptopinioner = #{qltydeptopinioner}</if>
+            <if test="fdeptopinioner != null  and fdeptopinioner != ''"> and fdeptopinioner = #{fdeptopinioner}</if>
+            <if test="synctime != null "> and synctime = #{synctime}</if>
+            <if test="substatus != null  and substatus != ''"> and substatus = #{substatus}</if>
+            <if test="failreason != null  and failreason != ''"> and failreason = #{failreason}</if>
+        </where>
+    </select>
+
+</mapper>

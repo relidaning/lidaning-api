@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.lidaning.api.jxc.mapper.JxcTrdBuylistMapper">
+
+    <resultMap type="JxcTrdBuylist" id="JxcTrdBuylistResult">
+        <result property="id"    column="id"    />
+        <result property="instkno"    column="instkno"    />
+        <result property="goodarrtime"    column="goodarrtime"    />
+        <result property="supplierid"    column="supplierid"    />
+        <result property="suppliername"    column="suppliername"    />
+        <result property="goodcode"    column="goodcode"    />
+        <result property="goodstdcode"    column="goodstdcode"    />
+        <result property="goodtype"    column="goodtype"    />
+        <result property="drugname"    column="drugname"    />
+        <result property="goodname"    column="goodname"    />
+        <result property="factory"    column="factory"    />
+        <result property="batchno"    column="batchno"    />
+        <result property="mftdate"    column="mftdate"    />
+        <result property="usefuldate"    column="usefuldate"    />
+        <result property="quantity"    column="quantity"    />
+        <result property="unit"    column="unit"    />
+        <result property="isretailunit"    column="isretailunit"    />
+        <result property="price"    column="price"    />
+        <result property="totalamt"    column="totalamt"    />
+        <result property="qlfqty"    column="qlfqty"    />
+        <result property="unqlfqty"    column="unqlfqty"    />
+        <result property="unqlfrsn"    column="unqlfrsn"    />
+        <result property="faceqlty"    column="faceqlty"    />
+        <result property="packcase"    column="packcase"    />
+        <result property="qltycase"    column="qltycase"    />
+        <result property="verifyrst"    column="verifyrst"    />
+        <result property="moncode"    column="moncode"    />
+        <result property="packlevel"    column="packlevel"    />
+        <result property="packrate"    column="packrate"    />
+        <result property="state"    column="state"    />
+        <result property="firstchktime"    column="firstchktime"    />
+        <result property="adjsubmittime"    column="adjsubmittime"    />
+        <result property="rptfilename"    column="rptfilename"    />
+        <result property="gbcode"    column="gbcode"    />
+        <result property="minunit"    column="minunit"    />
+        <result property="minunitcount"    column="minunitcount"    />
+        <result property="convertrate"    column="convertrate"    />
+        <result property="rptbeforestatus"    column="rptbeforestatus"    />
+        <result property="rptstatus"    column="rptstatus"    />
+        <result property="mftdateex"    column="mftdateex"    />
+        <result property="usefuldateex"    column="usefuldateex"    />
+        <result property="style"    column="style"    />
+        <result property="createtime"    column="createtime"    />
+        <result property="retailrate"    column="retailrate"    />
+        <result property="isordno"    column="isordno"    />
+        <result property="presellprice"    column="presellprice"    />
+        <result property="preselltotalamt"    column="preselltotalamt"    />
+        <result property="preprofit"    column="preprofit"    />
+        <result property="doestype"    column="doestype"    />
+        <result property="apvno"    column="apvno"    />
+        <result property="factoryaddr"    column="factoryaddr"    />
+        <result property="detailremark"    column="detailremark"    />
+        <result property="synctime"    column="synctime"    />
+        <result property="substatus"    column="substatus"    />
+        <result property="failreason"    column="failreason"    />
+        <result property="pid"    column="pid"    />
+    </resultMap>
+
+    <sql id="selectJxcTrdBuylistVo">
+        select id, instkno, goodarrtime, supplierid, suppliername, goodcode, goodstdcode, goodtype, drugname, goodname, factory, batchno, mftdate, usefuldate, quantity, unit, isretailunit, price, totalamt, qlfqty, unqlfqty, unqlfrsn, faceqlty, packcase, qltycase, verifyrst, moncode, packlevel, packrate, state, firstchktime, adjsubmittime, rptfilename, gbcode, minunit, minunitcount, convertrate, rptbeforestatus, rptstatus, mftdateex, usefuldateex, style, createtime, retailrate, isordno, presellprice, preselltotalamt, preprofit, doestype, apvno, factoryaddr, detailremark, synctime, substatus, failreason, pid from jxc_trd_buylist
+    </sql>
+
+    <select id="selectJxcTrdBuylistList" parameterType="JxcTrdBuylist" resultMap="JxcTrdBuylistResult">
+        <include refid="selectJxcTrdBuylistVo"/>
+        <where>
+            <if test="instkno != null  and instkno != ''"> and instkno = #{instkno}</if>
+            <if test="goodarrtime != null "> and goodarrtime = #{goodarrtime}</if>
+            <if test="supplierid != null  and supplierid != ''"> and supplierid = #{supplierid}</if>
+            <if test="suppliername != null  and suppliername != ''">
+                 AND suppliername like concat(concat('%', #{suppliername}), '%')
+            </if>
+            <if test="goodcode != null  and goodcode != ''"> and goodcode = #{goodcode}</if>
+            <if test="goodstdcode != null  and goodstdcode != ''"> and goodstdcode = #{goodstdcode}</if>
+            <if test="goodtype != null "> and goodtype = #{goodtype}</if>
+            <if test="drugname != null  and drugname != ''">
+                 AND drugname like concat(concat('%', #{drugname}), '%')
+            </if>
+            <if test="goodname != null  and goodname != ''">
+                 AND goodname like concat(concat('%', #{goodname}), '%')
+            </if>
+            <if test="factory != null  and factory != ''"> and factory = #{factory}</if>
+            <if test="batchno != null  and batchno != ''"> and batchno = #{batchno}</if>
+            <if test="mftdate != null "> and mftdate = #{mftdate}</if>
+            <if test="usefuldate != null "> and usefuldate = #{usefuldate}</if>
+            <if test="quantity != null "> and quantity = #{quantity}</if>
+            <if test="unit != null  and unit != ''"> and unit = #{unit}</if>
+            <if test="isretailunit != null "> and isretailunit = #{isretailunit}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="totalamt != null "> and totalamt = #{totalamt}</if>
+            <if test="qlfqty != null "> and qlfqty = #{qlfqty}</if>
+            <if test="unqlfqty != null "> and unqlfqty = #{unqlfqty}</if>
+            <if test="unqlfrsn != null  and unqlfrsn != ''"> and unqlfrsn = #{unqlfrsn}</if>
+            <if test="faceqlty != null  and faceqlty != ''"> and faceqlty = #{faceqlty}</if>
+            <if test="packcase != null  and packcase != ''"> and packcase = #{packcase}</if>
+            <if test="qltycase != null  and qltycase != ''"> and qltycase = #{qltycase}</if>
+            <if test="verifyrst != null  and verifyrst != ''"> and verifyrst = #{verifyrst}</if>
+            <if test="moncode != null "> and moncode = #{moncode}</if>
+            <if test="packlevel != null "> and packlevel = #{packlevel}</if>
+            <if test="packrate != null "> and packrate = #{packrate}</if>
+            <if test="state != null "> and state = #{state}</if>
+            <if test="firstchktime != null "> and firstchktime = #{firstchktime}</if>
+            <if test="adjsubmittime != null "> and adjsubmittime = #{adjsubmittime}</if>
+            <if test="rptfilename != null  and rptfilename != ''">
+                 AND rptfilename like concat(concat('%', #{rptfilename}), '%')
+            </if>
+            <if test="gbcode != null  and gbcode != ''"> and gbcode = #{gbcode}</if>
+            <if test="minunit != null  and minunit != ''"> and minunit = #{minunit}</if>
+            <if test="minunitcount != null "> and minunitcount = #{minunitcount}</if>
+            <if test="convertrate != null "> and convertrate = #{convertrate}</if>
+            <if test="rptbeforestatus != null "> and rptbeforestatus = #{rptbeforestatus}</if>
+            <if test="rptstatus != null "> and rptstatus = #{rptstatus}</if>
+            <if test="mftdateex != null  and mftdateex != ''"> and mftdateex = #{mftdateex}</if>
+            <if test="usefuldateex != null  and usefuldateex != ''"> and usefuldateex = #{usefuldateex}</if>
+            <if test="style != null  and style != ''"> and style = #{style}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="retailrate != null "> and retailrate = #{retailrate}</if>
+            <if test="isordno != null "> and isordno = #{isordno}</if>
+            <if test="presellprice != null "> and presellprice = #{presellprice}</if>
+            <if test="preselltotalamt != null "> and preselltotalamt = #{preselltotalamt}</if>
+            <if test="preprofit != null "> and preprofit = #{preprofit}</if>
+            <if test="doestype != null  and doestype != ''"> and doestype = #{doestype}</if>
+            <if test="apvno != null  and apvno != ''"> and apvno = #{apvno}</if>
+            <if test="factoryaddr != null  and factoryaddr != ''"> and factoryaddr = #{factoryaddr}</if>
+            <if test="detailremark != null  and detailremark != ''"> and detailremark = #{detailremark}</if>
+            <if test="synctime != null "> and synctime = #{synctime}</if>
+            <if test="substatus != null  and substatus != ''"> and substatus = #{substatus}</if>
+            <if test="failreason != null  and failreason != ''"> and failreason = #{failreason}</if>
+            <if test="pid != null  and pid != ''"> and pid = #{pid}</if>
+        </where>
+    </select>
+
+    <select id="selectJxcTrdBuylistById" parameterType="String" resultMap="JxcTrdBuylistResult">
+        <include refid="selectJxcTrdBuylistVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertJxcTrdBuylist" parameterType="JxcTrdBuylist">
+        insert into jxc_trd_buylist
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="instkno != null">instkno,</if>
+            <if test="goodarrtime != null">goodarrtime,</if>
+            <if test="supplierid != null">supplierid,</if>
+            <if test="suppliername != null">suppliername,</if>
+            <if test="goodcode != null">goodcode,</if>
+            <if test="goodstdcode != null">goodstdcode,</if>
+            <if test="goodtype != null">goodtype,</if>
+            <if test="drugname != null">drugname,</if>
+            <if test="goodname != null">goodname,</if>
+            <if test="factory != null">factory,</if>
+            <if test="batchno != null">batchno,</if>
+            <if test="mftdate != null">mftdate,</if>
+            <if test="usefuldate != null">usefuldate,</if>
+            <if test="quantity != null">quantity,</if>
+            <if test="unit != null">unit,</if>
+            <if test="isretailunit != null">isretailunit,</if>
+            <if test="price != null">price,</if>
+            <if test="totalamt != null">totalamt,</if>
+            <if test="qlfqty != null">qlfqty,</if>
+            <if test="unqlfqty != null">unqlfqty,</if>
+            <if test="unqlfrsn != null">unqlfrsn,</if>
+            <if test="faceqlty != null">faceqlty,</if>
+            <if test="packcase != null">packcase,</if>
+            <if test="qltycase != null">qltycase,</if>
+            <if test="verifyrst != null">verifyrst,</if>
+            <if test="moncode != null">moncode,</if>
+            <if test="packlevel != null">packlevel,</if>
+            <if test="packrate != null">packrate,</if>
+            <if test="state != null">state,</if>
+            <if test="firstchktime != null">firstchktime,</if>
+            <if test="adjsubmittime != null">adjsubmittime,</if>
+            <if test="rptfilename != null">rptfilename,</if>
+            <if test="gbcode != null">gbcode,</if>
+            <if test="minunit != null">minunit,</if>
+            <if test="minunitcount != null">minunitcount,</if>
+            <if test="convertrate != null">convertrate,</if>
+            <if test="rptbeforestatus != null">rptbeforestatus,</if>
+            <if test="rptstatus != null">rptstatus,</if>
+            <if test="mftdateex != null">mftdateex,</if>
+            <if test="usefuldateex != null">usefuldateex,</if>
+            <if test="style != null">style,</if>
+            <if test="createtime != null">createtime,</if>
+            <if test="retailrate != null">retailrate,</if>
+            <if test="isordno != null">isordno,</if>
+            <if test="presellprice != null">presellprice,</if>
+            <if test="preselltotalamt != null">preselltotalamt,</if>
+            <if test="preprofit != null">preprofit,</if>
+            <if test="doestype != null">doestype,</if>
+            <if test="apvno != null">apvno,</if>
+            <if test="factoryaddr != null">factoryaddr,</if>
+            <if test="detailremark != null">detailremark,</if>
+            <if test="synctime != null">synctime,</if>
+            <if test="substatus != null">substatus,</if>
+            <if test="failreason != null">failreason,</if>
+            <if test="pid != null">pid,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="instkno != null">#{instkno},</if>
+            <if test="goodarrtime != null">#{goodarrtime},</if>
+            <if test="supplierid != null">#{supplierid},</if>
+            <if test="suppliername != null">#{suppliername},</if>
+            <if test="goodcode != null">#{goodcode},</if>
+            <if test="goodstdcode != null">#{goodstdcode},</if>
+            <if test="goodtype != null">#{goodtype},</if>
+            <if test="drugname != null">#{drugname},</if>
+            <if test="goodname != null">#{goodname},</if>
+            <if test="factory != null">#{factory},</if>
+            <if test="batchno != null">#{batchno},</if>
+            <if test="mftdate != null">#{mftdate},</if>
+            <if test="usefuldate != null">#{usefuldate},</if>
+            <if test="quantity != null">#{quantity},</if>
+            <if test="unit != null">#{unit},</if>
+            <if test="isretailunit != null">#{isretailunit},</if>
+            <if test="price != null">#{price},</if>
+            <if test="totalamt != null">#{totalamt},</if>
+            <if test="qlfqty != null">#{qlfqty},</if>
+            <if test="unqlfqty != null">#{unqlfqty},</if>
+            <if test="unqlfrsn != null">#{unqlfrsn},</if>
+            <if test="faceqlty != null">#{faceqlty},</if>
+            <if test="packcase != null">#{packcase},</if>
+            <if test="qltycase != null">#{qltycase},</if>
+            <if test="verifyrst != null">#{verifyrst},</if>
+            <if test="moncode != null">#{moncode},</if>
+            <if test="packlevel != null">#{packlevel},</if>
+            <if test="packrate != null">#{packrate},</if>
+            <if test="state != null">#{state},</if>
+            <if test="firstchktime != null">#{firstchktime},</if>
+            <if test="adjsubmittime != null">#{adjsubmittime},</if>
+            <if test="rptfilename != null">#{rptfilename},</if>
+            <if test="gbcode != null">#{gbcode},</if>
+            <if test="minunit != null">#{minunit},</if>
+            <if test="minunitcount != null">#{minunitcount},</if>
+            <if test="convertrate != null">#{convertrate},</if>
+            <if test="rptbeforestatus != null">#{rptbeforestatus},</if>
+            <if test="rptstatus != null">#{rptstatus},</if>
+            <if test="mftdateex != null">#{mftdateex},</if>
+            <if test="usefuldateex != null">#{usefuldateex},</if>
+            <if test="style != null">#{style},</if>
+            <if test="createtime != null">#{createtime},</if>
+            <if test="retailrate != null">#{retailrate},</if>
+            <if test="isordno != null">#{isordno},</if>
+            <if test="presellprice != null">#{presellprice},</if>
+            <if test="preselltotalamt != null">#{preselltotalamt},</if>
+            <if test="preprofit != null">#{preprofit},</if>
+            <if test="doestype != null">#{doestype},</if>
+            <if test="apvno != null">#{apvno},</if>
+            <if test="factoryaddr != null">#{factoryaddr},</if>
+            <if test="detailremark != null">#{detailremark},</if>
+            <if test="synctime != null">#{synctime},</if>
+            <if test="substatus != null">#{substatus},</if>
+            <if test="failreason != null">#{failreason},</if>
+            <if test="pid != null">#{pid},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJxcTrdBuylist" parameterType="JxcTrdBuylist">
+        update jxc_trd_buylist
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="instkno != null">instkno = #{instkno},</if>
+            <if test="goodarrtime != null">goodarrtime = #{goodarrtime},</if>
+            <if test="supplierid != null">supplierid = #{supplierid},</if>
+            <if test="suppliername != null">suppliername = #{suppliername},</if>
+            <if test="goodcode != null">goodcode = #{goodcode},</if>
+            <if test="goodstdcode != null">goodstdcode = #{goodstdcode},</if>
+            <if test="goodtype != null">goodtype = #{goodtype},</if>
+            <if test="drugname != null">drugname = #{drugname},</if>
+            <if test="goodname != null">goodname = #{goodname},</if>
+            <if test="factory != null">factory = #{factory},</if>
+            <if test="batchno != null">batchno = #{batchno},</if>
+            <if test="mftdate != null">mftdate = #{mftdate},</if>
+            <if test="usefuldate != null">usefuldate = #{usefuldate},</if>
+            <if test="quantity != null">quantity = #{quantity},</if>
+            <if test="unit != null">unit = #{unit},</if>
+            <if test="isretailunit != null">isretailunit = #{isretailunit},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="totalamt != null">totalamt = #{totalamt},</if>
+            <if test="qlfqty != null">qlfqty = #{qlfqty},</if>
+            <if test="unqlfqty != null">unqlfqty = #{unqlfqty},</if>
+            <if test="unqlfrsn != null">unqlfrsn = #{unqlfrsn},</if>
+            <if test="faceqlty != null">faceqlty = #{faceqlty},</if>
+            <if test="packcase != null">packcase = #{packcase},</if>
+            <if test="qltycase != null">qltycase = #{qltycase},</if>
+            <if test="verifyrst != null">verifyrst = #{verifyrst},</if>
+            <if test="moncode != null">moncode = #{moncode},</if>
+            <if test="packlevel != null">packlevel = #{packlevel},</if>
+            <if test="packrate != null">packrate = #{packrate},</if>
+            <if test="state != null">state = #{state},</if>
+            <if test="firstchktime != null">firstchktime = #{firstchktime},</if>
+            <if test="adjsubmittime != null">adjsubmittime = #{adjsubmittime},</if>
+            <if test="rptfilename != null">rptfilename = #{rptfilename},</if>
+            <if test="gbcode != null">gbcode = #{gbcode},</if>
+            <if test="minunit != null">minunit = #{minunit},</if>
+            <if test="minunitcount != null">minunitcount = #{minunitcount},</if>
+            <if test="convertrate != null">convertrate = #{convertrate},</if>
+            <if test="rptbeforestatus != null">rptbeforestatus = #{rptbeforestatus},</if>
+            <if test="rptstatus != null">rptstatus = #{rptstatus},</if>
+            <if test="mftdateex != null">mftdateex = #{mftdateex},</if>
+            <if test="usefuldateex != null">usefuldateex = #{usefuldateex},</if>
+            <if test="style != null">style = #{style},</if>
+            <if test="createtime != null">createtime = #{createtime},</if>
+            <if test="retailrate != null">retailrate = #{retailrate},</if>
+            <if test="isordno != null">isordno = #{isordno},</if>
+            <if test="presellprice != null">presellprice = #{presellprice},</if>
+            <if test="preselltotalamt != null">preselltotalamt = #{preselltotalamt},</if>
+            <if test="preprofit != null">preprofit = #{preprofit},</if>
+            <if test="doestype != null">doestype = #{doestype},</if>
+            <if test="apvno != null">apvno = #{apvno},</if>
+            <if test="factoryaddr != null">factoryaddr = #{factoryaddr},</if>
+            <if test="detailremark != null">detailremark = #{detailremark},</if>
+            <if test="synctime != null">synctime = #{synctime},</if>
+            <if test="substatus != null">substatus = #{substatus},</if>
+            <if test="failreason != null">failreason = #{failreason},</if>
+            <if test="pid != null">pid = #{pid},</if>
+        </trim>
+        where id = #{id}
+    </update>
+    <update id="updateJxcTrdBuylistByPrimaryKey" parameterType="JxcTrdBuylist">
+        update jxc_trd_buylist set
+           instkno = #{instkno},
+           goodarrtime = #{goodarrtime},
+           supplierid = #{supplierid},
+           suppliername = #{suppliername},
+           goodcode = #{goodcode},
+           goodstdcode = #{goodstdcode},
+           goodtype = #{goodtype},
+           drugname = #{drugname},
+           goodname = #{goodname},
+           factory = #{factory},
+           batchno = #{batchno},
+           mftdate = #{mftdate},
+           usefuldate = #{usefuldate},
+           quantity = #{quantity},
+           unit = #{unit},
+           isretailunit = #{isretailunit},
+           price = #{price},
+           totalamt = #{totalamt},
+           qlfqty = #{qlfqty},
+           unqlfqty = #{unqlfqty},
+           unqlfrsn = #{unqlfrsn},
+           faceqlty = #{faceqlty},
+           packcase = #{packcase},
+           qltycase = #{qltycase},
+           verifyrst = #{verifyrst},
+           moncode = #{moncode},
+           packlevel = #{packlevel},
+           packrate = #{packrate},
+           state = #{state},
+           firstchktime = #{firstchktime},
+           adjsubmittime = #{adjsubmittime},
+           rptfilename = #{rptfilename},
+           gbcode = #{gbcode},
+           minunit = #{minunit},
+           minunitcount = #{minunitcount},
+           convertrate = #{convertrate},
+           rptbeforestatus = #{rptbeforestatus},
+           rptstatus = #{rptstatus},
+           mftdateex = #{mftdateex},
+           usefuldateex = #{usefuldateex},
+           style = #{style},
+           createtime = #{createtime},
+           retailrate = #{retailrate},
+           isordno = #{isordno},
+           presellprice = #{presellprice},
+           preselltotalamt = #{preselltotalamt},
+           preprofit = #{preprofit},
+           doestype = #{doestype},
+           apvno = #{apvno},
+           factoryaddr = #{factoryaddr},
+           detailremark = #{detailremark},
+           synctime = #{synctime},
+           substatus = #{substatus},
+           failreason = #{failreason},
+           pid = #{pid}
+        where id = #{id}
+    </update>
+    <delete id="deleteJxcTrdBuylistById" parameterType="String">
+        delete from jxc_trd_buylist where id = #{id}
+    </delete>
+
+    <delete id="deleteJxcTrdBuylistByIds" parameterType="String">
+        delete from jxc_trd_buylist where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="selectJxcTrdBuylistCount" parameterType="JxcTrdBuylist" resultType="java.lang.Integer">
+        select count(1) from jxc_trd_buylist
+        <where>
+            <if test="instkno != null  and instkno != ''"> and instkno = #{instkno}</if>
+            <if test="goodarrtime != null "> and goodarrtime = #{goodarrtime}</if>
+            <if test="supplierid != null  and supplierid != ''"> and supplierid = #{supplierid}</if>
+            <if test="suppliername != null  and suppliername != ''">
+                AND suppliername like concat(concat('%', #{suppliername}), '%')
+            </if>
+            <if test="goodcode != null  and goodcode != ''"> and goodcode = #{goodcode}</if>
+            <if test="goodstdcode != null  and goodstdcode != ''"> and goodstdcode = #{goodstdcode}</if>
+            <if test="goodtype != null "> and goodtype = #{goodtype}</if>
+            <if test="drugname != null  and drugname != ''">
+                AND drugname like concat(concat('%', #{drugname}), '%')
+            </if>
+            <if test="goodname != null  and goodname != ''">
+                AND goodname like concat(concat('%', #{goodname}), '%')
+            </if>
+            <if test="factory != null  and factory != ''"> and factory = #{factory}</if>
+            <if test="batchno != null  and batchno != ''"> and batchno = #{batchno}</if>
+            <if test="mftdate != null "> and mftdate = #{mftdate}</if>
+            <if test="usefuldate != null "> and usefuldate = #{usefuldate}</if>
+            <if test="quantity != null "> and quantity = #{quantity}</if>
+            <if test="unit != null  and unit != ''"> and unit = #{unit}</if>
+            <if test="isretailunit != null "> and isretailunit = #{isretailunit}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="totalamt != null "> and totalamt = #{totalamt}</if>
+            <if test="qlfqty != null "> and qlfqty = #{qlfqty}</if>
+            <if test="unqlfqty != null "> and unqlfqty = #{unqlfqty}</if>
+            <if test="unqlfrsn != null  and unqlfrsn != ''"> and unqlfrsn = #{unqlfrsn}</if>
+            <if test="faceqlty != null  and faceqlty != ''"> and faceqlty = #{faceqlty}</if>
+            <if test="packcase != null  and packcase != ''"> and packcase = #{packcase}</if>
+            <if test="qltycase != null  and qltycase != ''"> and qltycase = #{qltycase}</if>
+            <if test="verifyrst != null  and verifyrst != ''"> and verifyrst = #{verifyrst}</if>
+            <if test="moncode != null "> and moncode = #{moncode}</if>
+            <if test="packlevel != null "> and packlevel = #{packlevel}</if>
+            <if test="packrate != null "> and packrate = #{packrate}</if>
+            <if test="state != null "> and state = #{state}</if>
+            <if test="firstchktime != null "> and firstchktime = #{firstchktime}</if>
+            <if test="adjsubmittime != null "> and adjsubmittime = #{adjsubmittime}</if>
+            <if test="rptfilename != null  and rptfilename != ''">
+                AND rptfilename like concat(concat('%', #{rptfilename}), '%')
+            </if>
+            <if test="gbcode != null  and gbcode != ''"> and gbcode = #{gbcode}</if>
+            <if test="minunit != null  and minunit != ''"> and minunit = #{minunit}</if>
+            <if test="minunitcount != null "> and minunitcount = #{minunitcount}</if>
+            <if test="convertrate != null "> and convertrate = #{convertrate}</if>
+            <if test="rptbeforestatus != null "> and rptbeforestatus = #{rptbeforestatus}</if>
+            <if test="rptstatus != null "> and rptstatus = #{rptstatus}</if>
+            <if test="mftdateex != null  and mftdateex != ''"> and mftdateex = #{mftdateex}</if>
+            <if test="usefuldateex != null  and usefuldateex != ''"> and usefuldateex = #{usefuldateex}</if>
+            <if test="style != null  and style != ''"> and style = #{style}</if>
+            <if test="createtime != null "> and createtime = #{createtime}</if>
+            <if test="retailrate != null "> and retailrate = #{retailrate}</if>
+            <if test="isordno != null "> and isordno = #{isordno}</if>
+            <if test="presellprice != null "> and presellprice = #{presellprice}</if>
+            <if test="preselltotalamt != null "> and preselltotalamt = #{preselltotalamt}</if>
+            <if test="preprofit != null "> and preprofit = #{preprofit}</if>
+            <if test="doestype != null  and doestype != ''"> and doestype = #{doestype}</if>
+            <if test="apvno != null  and apvno != ''"> and apvno = #{apvno}</if>
+            <if test="factoryaddr != null  and factoryaddr != ''"> and factoryaddr = #{factoryaddr}</if>
+            <if test="detailremark != null  and detailremark != ''"> and detailremark = #{detailremark}</if>
+            <if test="synctime != null "> and synctime = #{synctime}</if>
+            <if test="substatus != null  and substatus != ''"> and substatus = #{substatus}</if>
+            <if test="failreason != null  and failreason != ''"> and failreason = #{failreason}</if>
+        </where>
+    </select>
+
+</mapper>

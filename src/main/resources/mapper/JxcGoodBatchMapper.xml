@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.lidaning.api.jxc.mapper.JxcGoodBatchMapper">
+
+    <resultMap type="JxcGoodBatch" id="JxcGoodBatchResult">
+        <result property="id"    column="id"    />
+        <result property="goodcode"    column="goodcode"    />
+        <result property="goodstdcode"    column="goodstdcode"    />
+        <result property="batchno"    column="batchno"    />
+        <result property="mftdate"    column="mftdate"    />
+        <result property="usefuldate"    column="usefuldate"    />
+        <result property="stkqty"    column="stkqty"    />
+        <result property="retailsstkqty"    column="retailsstkqty"    />
+        <result property="newpurcprice"    column="newpurcprice"    />
+        <result property="newretailspurcprice"    column="newretailspurcprice"    />
+        <result property="firstcreatetime"    column="firstcreatetime"    />
+        <result property="lastmdftime"    column="lastmdftime"    />
+        <result property="status"    column="status"    />
+        <result property="commonmtdate"    column="commonmtdate"    />
+        <result property="majormtdate"    column="majormtdate"    />
+        <result property="usefulmtdate"    column="usefulmtdate"    />
+        <result property="mftdateex"    column="mftdateex"    />
+        <result property="usefuldateex"    column="usefuldateex"    />
+        <result property="mftdateaccuracy"    column="mftdateaccuracy"    />
+        <result property="validperiodaccuracy"    column="validperiodaccuracy"    />
+        <result property="latelybuytime"    column="latelybuytime"    />
+        <result property="latelysaletime"    column="latelysaletime"    />
+        <result property="cost"    column="cost"    />
+        <result property="retailcost"    column="retailcost"    />
+    </resultMap>
+
+    <sql id="selectJxcGoodBatchVo">
+        select id, goodcode, goodstdcode, batchno, mftdate, usefuldate, stkqty, retailsstkqty, newpurcprice, newretailspurcprice, firstcreatetime, lastmdftime, status, commonmtdate, majormtdate, usefulmtdate, mftdateex, usefuldateex, mftdateaccuracy, validperiodaccuracy, latelybuytime, latelysaletime, cost, retailcost from jxc_good_batch
+    </sql>
+
+    <select id="selectJxcGoodBatchList" parameterType="JxcGoodBatch" resultMap="JxcGoodBatchResult">
+        <include refid="selectJxcGoodBatchVo"/>
+        <where>
+            <if test="goodcode != null  and goodcode != ''"> and goodcode = #{goodcode}</if>
+            <if test="goodstdcode != null  and goodstdcode != ''"> and goodstdcode = #{goodstdcode}</if>
+            <if test="batchno != null  and batchno != ''"> and batchno = #{batchno}</if>
+            <if test="mftdate != null "> and mftdate = #{mftdate}</if>
+            <if test="usefuldate != null "> and usefuldate = #{usefuldate}</if>
+            <if test="stkqty != null "> and stkqty = #{stkqty}</if>
+            <if test="retailsstkqty != null "> and retailsstkqty = #{retailsstkqty}</if>
+            <if test="newpurcprice != null "> and newpurcprice = #{newpurcprice}</if>
+            <if test="newretailspurcprice != null "> and newretailspurcprice = #{newretailspurcprice}</if>
+            <if test="firstcreatetime != null "> and firstcreatetime = #{firstcreatetime}</if>
+            <if test="lastmdftime != null "> and lastmdftime = #{lastmdftime}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="commonmtdate != null "> and commonmtdate = #{commonmtdate}</if>
+            <if test="majormtdate != null "> and majormtdate = #{majormtdate}</if>
+            <if test="usefulmtdate != null "> and usefulmtdate = #{usefulmtdate}</if>
+            <if test="mftdateex != null  and mftdateex != ''"> and mftdateex = #{mftdateex}</if>
+            <if test="usefuldateex != null  and usefuldateex != ''"> and usefuldateex = #{usefuldateex}</if>
+            <if test="mftdateaccuracy != null "> and mftdateaccuracy = #{mftdateaccuracy}</if>
+            <if test="validperiodaccuracy != null "> and validperiodaccuracy = #{validperiodaccuracy}</if>
+            <if test="latelybuytime != null "> and latelybuytime = #{latelybuytime}</if>
+            <if test="latelysaletime != null "> and latelysaletime = #{latelysaletime}</if>
+            <if test="cost != null "> and cost = #{cost}</if>
+            <if test="retailcost != null "> and retailcost = #{retailcost}</if>
+        </where>
+    </select>
+
+    <select id="selectJxcGoodBatchById" parameterType="Long" resultMap="JxcGoodBatchResult">
+        <include refid="selectJxcGoodBatchVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertJxcGoodBatch" parameterType="JxcGoodBatch">
+        insert into jxc_good_batch
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="goodcode != null">goodcode,</if>
+            <if test="goodstdcode != null">goodstdcode,</if>
+            <if test="batchno != null">batchno,</if>
+            <if test="mftdate != null">mftdate,</if>
+            <if test="usefuldate != null">usefuldate,</if>
+            <if test="stkqty != null">stkqty,</if>
+            <if test="retailsstkqty != null">retailsstkqty,</if>
+            <if test="newpurcprice != null">newpurcprice,</if>
+            <if test="newretailspurcprice != null">newretailspurcprice,</if>
+            <if test="firstcreatetime != null">firstcreatetime,</if>
+            <if test="lastmdftime != null">lastmdftime,</if>
+            <if test="status != null">status,</if>
+            <if test="commonmtdate != null">commonmtdate,</if>
+            <if test="majormtdate != null">majormtdate,</if>
+            <if test="usefulmtdate != null">usefulmtdate,</if>
+            <if test="mftdateex != null">mftdateex,</if>
+            <if test="usefuldateex != null">usefuldateex,</if>
+            <if test="mftdateaccuracy != null">mftdateaccuracy,</if>
+            <if test="validperiodaccuracy != null">validperiodaccuracy,</if>
+            <if test="latelybuytime != null">latelybuytime,</if>
+            <if test="latelysaletime != null">latelysaletime,</if>
+            <if test="cost != null">cost,</if>
+            <if test="retailcost != null">retailcost,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="goodcode != null">#{goodcode},</if>
+            <if test="goodstdcode != null">#{goodstdcode},</if>
+            <if test="batchno != null">#{batchno},</if>
+            <if test="mftdate != null">#{mftdate},</if>
+            <if test="usefuldate != null">#{usefuldate},</if>
+            <if test="stkqty != null">#{stkqty},</if>
+            <if test="retailsstkqty != null">#{retailsstkqty},</if>
+            <if test="newpurcprice != null">#{newpurcprice},</if>
+            <if test="newretailspurcprice != null">#{newretailspurcprice},</if>
+            <if test="firstcreatetime != null">#{firstcreatetime},</if>
+            <if test="lastmdftime != null">#{lastmdftime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="commonmtdate != null">#{commonmtdate},</if>
+            <if test="majormtdate != null">#{majormtdate},</if>
+            <if test="usefulmtdate != null">#{usefulmtdate},</if>
+            <if test="mftdateex != null">#{mftdateex},</if>
+            <if test="usefuldateex != null">#{usefuldateex},</if>
+            <if test="mftdateaccuracy != null">#{mftdateaccuracy},</if>
+            <if test="validperiodaccuracy != null">#{validperiodaccuracy},</if>
+            <if test="latelybuytime != null">#{latelybuytime},</if>
+            <if test="latelysaletime != null">#{latelysaletime},</if>
+            <if test="cost != null">#{cost},</if>
+            <if test="retailcost != null">#{retailcost},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJxcGoodBatch" parameterType="JxcGoodBatch">
+        update jxc_good_batch
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="goodcode != null">goodcode = #{goodcode},</if>
+            <if test="goodstdcode != null">goodstdcode = #{goodstdcode},</if>
+            <if test="batchno != null">batchno = #{batchno},</if>
+            <if test="mftdate != null">mftdate = #{mftdate},</if>
+            <if test="usefuldate != null">usefuldate = #{usefuldate},</if>
+            <if test="stkqty != null">stkqty = #{stkqty},</if>
+            <if test="retailsstkqty != null">retailsstkqty = #{retailsstkqty},</if>
+            <if test="newpurcprice != null">newpurcprice = #{newpurcprice},</if>
+            <if test="newretailspurcprice != null">newretailspurcprice = #{newretailspurcprice},</if>
+            <if test="firstcreatetime != null">firstcreatetime = #{firstcreatetime},</if>
+            <if test="lastmdftime != null">lastmdftime = #{lastmdftime},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="commonmtdate != null">commonmtdate = #{commonmtdate},</if>
+            <if test="majormtdate != null">majormtdate = #{majormtdate},</if>
+            <if test="usefulmtdate != null">usefulmtdate = #{usefulmtdate},</if>
+            <if test="mftdateex != null">mftdateex = #{mftdateex},</if>
+            <if test="usefuldateex != null">usefuldateex = #{usefuldateex},</if>
+            <if test="mftdateaccuracy != null">mftdateaccuracy = #{mftdateaccuracy},</if>
+            <if test="validperiodaccuracy != null">validperiodaccuracy = #{validperiodaccuracy},</if>
+            <if test="latelybuytime != null">latelybuytime = #{latelybuytime},</if>
+            <if test="latelysaletime != null">latelysaletime = #{latelysaletime},</if>
+            <if test="cost != null">cost = #{cost},</if>
+            <if test="retailcost != null">retailcost = #{retailcost},</if>
+        </trim>
+        where id = #{id}
+    </update>
+    <update id="updateJxcGoodBatchByPrimaryKey" parameterType="JxcGoodBatch">
+        update jxc_good_batch set
+           goodcode = #{goodcode},
+           goodstdcode = #{goodstdcode},
+           batchno = #{batchno},
+           mftdate = #{mftdate},
+           usefuldate = #{usefuldate},
+           stkqty = #{stkqty},
+           retailsstkqty = #{retailsstkqty},
+           newpurcprice = #{newpurcprice},
+           newretailspurcprice = #{newretailspurcprice},
+           firstcreatetime = #{firstcreatetime},
+           lastmdftime = #{lastmdftime},
+           status = #{status},
+           commonmtdate = #{commonmtdate},
+           majormtdate = #{majormtdate},
+           usefulmtdate = #{usefulmtdate},
+           mftdateex = #{mftdateex},
+           usefuldateex = #{usefuldateex},
+           mftdateaccuracy = #{mftdateaccuracy},
+           validperiodaccuracy = #{validperiodaccuracy},
+           latelybuytime = #{latelybuytime},
+           latelysaletime = #{latelysaletime},
+           cost = #{cost},
+           retailcost = #{retailcost}
+        where id = #{id}
+    </update>
+    <delete id="deleteJxcGoodBatchById" parameterType="Long">
+        delete from jxc_good_batch where id = #{id}
+    </delete>
+
+    <delete id="deleteJxcGoodBatchByIds" parameterType="String">
+        delete from jxc_good_batch where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="selectJxcGoodBatchCount" parameterType="JxcGoodBatch" resultType="java.lang.Integer">
+        select count(1) from jxc_good_batch
+        <where>
+            <if test="goodcode != null  and goodcode != ''"> and goodcode = #{goodcode}</if>
+            <if test="goodstdcode != null  and goodstdcode != ''"> and goodstdcode = #{goodstdcode}</if>
+            <if test="batchno != null  and batchno != ''"> and batchno = #{batchno}</if>
+            <if test="mftdate != null "> and mftdate = #{mftdate}</if>
+            <if test="usefuldate != null "> and usefuldate = #{usefuldate}</if>
+            <if test="stkqty != null "> and stkqty = #{stkqty}</if>
+            <if test="retailsstkqty != null "> and retailsstkqty = #{retailsstkqty}</if>
+            <if test="newpurcprice != null "> and newpurcprice = #{newpurcprice}</if>
+            <if test="newretailspurcprice != null "> and newretailspurcprice = #{newretailspurcprice}</if>
+            <if test="firstcreatetime != null "> and firstcreatetime = #{firstcreatetime}</if>
+            <if test="lastmdftime != null "> and lastmdftime = #{lastmdftime}</if>
+            <if test="status != null "> and status = #{status}</if>
+            <if test="commonmtdate != null "> and commonmtdate = #{commonmtdate}</if>
+            <if test="majormtdate != null "> and majormtdate = #{majormtdate}</if>
+            <if test="usefulmtdate != null "> and usefulmtdate = #{usefulmtdate}</if>
+            <if test="mftdateex != null  and mftdateex != ''"> and mftdateex = #{mftdateex}</if>
+            <if test="usefuldateex != null  and usefuldateex != ''"> and usefuldateex = #{usefuldateex}</if>
+            <if test="mftdateaccuracy != null "> and mftdateaccuracy = #{mftdateaccuracy}</if>
+            <if test="validperiodaccuracy != null "> and validperiodaccuracy = #{validperiodaccuracy}</if>
+            <if test="latelybuytime != null "> and latelybuytime = #{latelybuytime}</if>
+            <if test="latelysaletime != null "> and latelysaletime = #{latelysaletime}</if>
+            <if test="cost != null "> and cost = #{cost}</if>
+            <if test="retailcost != null "> and retailcost = #{retailcost}</if>
+        </where>
+    </select>
+
+</mapper>

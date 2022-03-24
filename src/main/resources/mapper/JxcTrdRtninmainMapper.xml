@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="xyz.lidaning.api.jxc.mapper.JxcTrdRtninmainMapper">
+
+    <resultMap type="JxcTrdRtninmain" id="JxcTrdRtninmainResult">
+        <result property="rtnno"    column="rtnno"    />
+        <result property="rtntime"    column="rtntime"    />
+        <result property="invoiceno"    column="invoiceno"    />
+        <result property="billfileno"    column="billfileno"    />
+        <result property="clientid"    column="clientid"    />
+        <result property="clientname"    column="clientname"    />
+        <result property="totalamt"    column="totalamt"    />
+        <result property="smanid"    column="smanid"    />
+        <result property="smanname"    column="smanname"    />
+        <result property="operid"    column="operid"    />
+        <result property="opername"    column="opername"    />
+        <result property="inspectorid"    column="inspectorid"    />
+        <result property="inspectorname"    column="inspectorname"    />
+        <result property="chkstate"    column="chkstate"    />
+        <result property="remark"    column="remark"    />
+        <result property="makerid"    column="makerid"    />
+        <result property="makername"    column="makername"    />
+        <result property="maketime"    column="maketime"    />
+        <result property="auditorid"    column="auditorid"    />
+        <result property="auditorname"    column="auditorname"    />
+        <result property="firstchktime"    column="firstchktime"    />
+        <result property="adjsubmittime"    column="adjsubmittime"    />
+        <result property="rptfilename"    column="rptfilename"    />
+        <result property="rptbeforestatus"    column="rptbeforestatus"    />
+        <result property="rptstatus"    column="rptstatus"    />
+        <result property="isbuildmcdfile"    column="isbuildmcdfile"    />
+        <result property="memberid"    column="memberid"    />
+        <result property="membername"    column="membername"    />
+        <result property="totalintegral"    column="totalintegral"    />
+        <result property="returntype"    column="returntype"    />
+        <result property="idtype"    column="idtype"    />
+        <result property="idnum"    column="idnum"    />
+        <result property="ismoncode"    column="ismoncode"    />
+        <result property="id"    column="id"    />
+        <result property="synctime"    column="synctime"    />
+        <result property="substatus"    column="substatus"    />
+        <result property="failreason"    column="failreason"    />
+        <result property="corpid"    column="corpid"    />
+    </resultMap>
+
+    <sql id="selectJxcTrdRtninmainVo">
+        select rtnno, rtntime, invoiceno, billfileno, clientid, clientname, totalamt, smanid, smanname, operid, opername, inspectorid, inspectorname, chkstate, remark, makerid, makername, maketime, auditorid, auditorname, firstchktime, adjsubmittime, rptfilename, rptbeforestatus, rptstatus, isbuildmcdfile, memberid, membername, totalintegral, returntype, idtype, idnum, ismoncode, id, synctime, substatus, failreason, corpid from jxc_trd_rtninmain
+    </sql>
+
+    <select id="selectJxcTrdRtninmainList" parameterType="JxcTrdRtninmain" resultMap="JxcTrdRtninmainResult">
+        <include refid="selectJxcTrdRtninmainVo"/>
+        <where>
+            <if test="rtnno != null  and rtnno != ''"> and rtnno = #{rtnno}</if>
+            <if test="rtntime != null "> and rtntime = #{rtntime}</if>
+            <if test="invoiceno != null  and invoiceno != ''"> and invoiceno = #{invoiceno}</if>
+            <if test="billfileno != null  and billfileno != ''"> and billfileno = #{billfileno}</if>
+            <if test="clientid != null "> and clientid = #{clientid}</if>
+            <if test="clientname != null  and clientname != ''">
+                 AND clientname like concat(concat('%', #{clientname}), '%')
+            </if>
+            <if test="totalamt != null "> and totalamt = #{totalamt}</if>
+            <if test="smanid != null "> and smanid = #{smanid}</if>
+            <if test="smanname != null  and smanname != ''">
+                 AND smanname like concat(concat('%', #{smanname}), '%')
+            </if>
+            <if test="operid != null "> and operid = #{operid}</if>
+            <if test="opername != null  and opername != ''">
+                 AND opername like concat(concat('%', #{opername}), '%')
+            </if>
+            <if test="inspectorid != null "> and inspectorid = #{inspectorid}</if>
+            <if test="inspectorname != null  and inspectorname != ''">
+                 AND inspectorname like concat(concat('%', #{inspectorname}), '%')
+            </if>
+            <if test="chkstate != null "> and chkstate = #{chkstate}</if>
+            <if test="makerid != null "> and makerid = #{makerid}</if>
+            <if test="makername != null  and makername != ''">
+                 AND makername like concat(concat('%', #{makername}), '%')
+            </if>
+            <if test="maketime != null "> and maketime = #{maketime}</if>
+            <if test="auditorid != null "> and auditorid = #{auditorid}</if>
+            <if test="auditorname != null  and auditorname != ''">
+                 AND auditorname like concat(concat('%', #{auditorname}), '%')
+            </if>
+            <if test="firstchktime != null "> and firstchktime = #{firstchktime}</if>
+            <if test="adjsubmittime != null "> and adjsubmittime = #{adjsubmittime}</if>
+            <if test="rptfilename != null  and rptfilename != ''">
+                 AND rptfilename like concat(concat('%', #{rptfilename}), '%')
+            </if>
+            <if test="rptbeforestatus != null "> and rptbeforestatus = #{rptbeforestatus}</if>
+            <if test="rptstatus != null "> and rptstatus = #{rptstatus}</if>
+            <if test="isbuildmcdfile != null "> and isbuildmcdfile = #{isbuildmcdfile}</if>
+            <if test="memberid != null "> and memberid = #{memberid}</if>
+            <if test="membername != null  and membername != ''">
+                 AND membername like concat(concat('%', #{membername}), '%')
+            </if>
+            <if test="totalintegral != null "> and totalintegral = #{totalintegral}</if>
+            <if test="returntype != null "> and returntype = #{returntype}</if>
+            <if test="idtype != null "> and idtype = #{idtype}</if>
+            <if test="idnum != null  and idnum != ''"> and idnum = #{idnum}</if>
+            <if test="ismoncode != null "> and ismoncode = #{ismoncode}</if>
+            <if test="synctime != null "> and synctime = #{synctime}</if>
+            <if test="substatus != null  and substatus != ''"> and substatus = #{substatus}</if>
+            <if test="failreason != null  and failreason != ''"> and failreason = #{failreason}</if>
+            <if test="corpid != null  and corpid != ''"> and corpid = #{corpid}</if>
+            <if test="whereCouse != null  and whereCouse != ''"> and ${whereCouse} </if>
+        </where>
+    </select>
+
+    <select id="selectJxcTrdRtninmainById" parameterType="String" resultMap="JxcTrdRtninmainResult">
+        <include refid="selectJxcTrdRtninmainVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertJxcTrdRtninmain" parameterType="JxcTrdRtninmain">
+        insert into jxc_trd_rtninmain
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="rtnno != null and rtnno != ''">rtnno,</if>
+            <if test="rtntime != null">rtntime,</if>
+            <if test="invoiceno != null">invoiceno,</if>
+            <if test="billfileno != null">billfileno,</if>
+            <if test="clientid != null">clientid,</if>
+            <if test="clientname != null">clientname,</if>
+            <if test="totalamt != null">totalamt,</if>
+            <if test="smanid != null">smanid,</if>
+            <if test="smanname != null">smanname,</if>
+            <if test="operid != null">operid,</if>
+            <if test="opername != null">opername,</if>
+            <if test="inspectorid != null">inspectorid,</if>
+            <if test="inspectorname != null">inspectorname,</if>
+            <if test="chkstate != null">chkstate,</if>
+            <if test="remark != null">remark,</if>
+            <if test="makerid != null">makerid,</if>
+            <if test="makername != null">makername,</if>
+            <if test="maketime != null">maketime,</if>
+            <if test="auditorid != null">auditorid,</if>
+            <if test="auditorname != null">auditorname,</if>
+            <if test="firstchktime != null">firstchktime,</if>
+            <if test="adjsubmittime != null">adjsubmittime,</if>
+            <if test="rptfilename != null">rptfilename,</if>
+            <if test="rptbeforestatus != null">rptbeforestatus,</if>
+            <if test="rptstatus != null">rptstatus,</if>
+            <if test="isbuildmcdfile != null">isbuildmcdfile,</if>
+            <if test="memberid != null">memberid,</if>
+            <if test="membername != null">membername,</if>
+            <if test="totalintegral != null">totalintegral,</if>
+            <if test="returntype != null">returntype,</if>
+            <if test="idtype != null">idtype,</if>
+            <if test="idnum != null">idnum,</if>
+            <if test="ismoncode != null">ismoncode,</if>
+            <if test="id != null">id,</if>
+            <if test="synctime != null">synctime,</if>
+            <if test="substatus != null">substatus,</if>
+            <if test="failreason != null">failreason,</if>
+            <if test="corpid != null">corpid,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="rtnno != null and rtnno != ''">#{rtnno},</if>
+            <if test="rtntime != null">#{rtntime},</if>
+            <if test="invoiceno != null">#{invoiceno},</if>
+            <if test="billfileno != null">#{billfileno},</if>
+            <if test="clientid != null">#{clientid},</if>
+            <if test="clientname != null">#{clientname},</if>
+            <if test="totalamt != null">#{totalamt},</if>
+            <if test="smanid != null">#{smanid},</if>
+            <if test="smanname != null">#{smanname},</if>
+            <if test="operid != null">#{operid},</if>
+            <if test="opername != null">#{opername},</if>
+            <if test="inspectorid != null">#{inspectorid},</if>
+            <if test="inspectorname != null">#{inspectorname},</if>
+            <if test="chkstate != null">#{chkstate},</if>
+            <if test="remark != null">#{remark},</if>
+            <if test="makerid != null">#{makerid},</if>
+            <if test="makername != null">#{makername},</if>
+            <if test="maketime != null">#{maketime},</if>
+            <if test="auditorid != null">#{auditorid},</if>
+            <if test="auditorname != null">#{auditorname},</if>
+            <if test="firstchktime != null">#{firstchktime},</if>
+            <if test="adjsubmittime != null">#{adjsubmittime},</if>
+            <if test="rptfilename != null">#{rptfilename},</if>
+            <if test="rptbeforestatus != null">#{rptbeforestatus},</if>
+            <if test="rptstatus != null">#{rptstatus},</if>
+            <if test="isbuildmcdfile != null">#{isbuildmcdfile},</if>
+            <if test="memberid != null">#{memberid},</if>
+            <if test="membername != null">#{membername},</if>
+            <if test="totalintegral != null">#{totalintegral},</if>
+            <if test="returntype != null">#{returntype},</if>
+            <if test="idtype != null">#{idtype},</if>
+            <if test="idnum != null">#{idnum},</if>
+            <if test="ismoncode != null">#{ismoncode},</if>
+            <if test="id != null">#{id},</if>
+            <if test="synctime != null">#{synctime},</if>
+            <if test="substatus != null">#{substatus},</if>
+            <if test="failreason != null">#{failreason},</if>
+            <if test="corpid != null">#{corpid},</if>
+         </trim>
+    </insert>
+
+    <update id="updateJxcTrdRtninmain" parameterType="JxcTrdRtninmain">
+        update jxc_trd_rtninmain
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="rtnno != null and rtnno != ''">rtnno = #{rtnno},</if>
+            <if test="rtntime != null">rtntime = #{rtntime},</if>
+            <if test="invoiceno != null">invoiceno = #{invoiceno},</if>
+            <if test="billfileno != null">billfileno = #{billfileno},</if>
+            <if test="clientid != null">clientid = #{clientid},</if>
+            <if test="clientname != null">clientname = #{clientname},</if>
+            <if test="totalamt != null">totalamt = #{totalamt},</if>
+            <if test="smanid != null">smanid = #{smanid},</if>
+            <if test="smanname != null">smanname = #{smanname},</if>
+            <if test="operid != null">operid = #{operid},</if>
+            <if test="opername != null">opername = #{opername},</if>
+            <if test="inspectorid != null">inspectorid = #{inspectorid},</if>
+            <if test="inspectorname != null">inspectorname = #{inspectorname},</if>
+            <if test="chkstate != null">chkstate = #{chkstate},</if>
+            <if test="remark != null">remark = #{remark},</if>
+            <if test="makerid != null">makerid = #{makerid},</if>
+            <if test="makername != null">makername = #{makername},</if>
+            <if test="maketime != null">maketime = #{maketime},</if>
+            <if test="auditorid != null">auditorid = #{auditorid},</if>
+            <if test="auditorname != null">auditorname = #{auditorname},</if>
+            <if test="firstchktime != null">firstchktime = #{firstchktime},</if>
+            <if test="adjsubmittime != null">adjsubmittime = #{adjsubmittime},</if>
+            <if test="rptfilename != null">rptfilename = #{rptfilename},</if>
+            <if test="rptbeforestatus != null">rptbeforestatus = #{rptbeforestatus},</if>
+            <if test="rptstatus != null">rptstatus = #{rptstatus},</if>
+            <if test="isbuildmcdfile != null">isbuildmcdfile = #{isbuildmcdfile},</if>
+            <if test="memberid != null">memberid = #{memberid},</if>
+            <if test="membername != null">membername = #{membername},</if>
+            <if test="totalintegral != null">totalintegral = #{totalintegral},</if>
+            <if test="returntype != null">returntype = #{returntype},</if>
+            <if test="idtype != null">idtype = #{idtype},</if>
+            <if test="idnum != null">idnum = #{idnum},</if>
+            <if test="ismoncode != null">ismoncode = #{ismoncode},</if>
+            <if test="synctime != null">synctime = #{synctime},</if>
+            <if test="substatus != null">substatus = #{substatus},</if>
+            <if test="failreason != null">failreason = #{failreason},</if>
+            <if test="corpid != null">corpid = #{corpid},</if>
+        </trim>
+        where id = #{id}
+    </update>
+    <update id="updateJxcTrdRtninmainByPrimaryKey" parameterType="JxcTrdRtninmain">
+        update jxc_trd_rtninmain set
+           rtnno = #{rtnno},
+           rtntime = #{rtntime},
+           invoiceno = #{invoiceno},
+           billfileno = #{billfileno},
+           clientid = #{clientid},
+           clientname = #{clientname},
+           totalamt = #{totalamt},
+           smanid = #{smanid},
+           smanname = #{smanname},
+           operid = #{operid},
+           opername = #{opername},
+           inspectorid = #{inspectorid},
+           inspectorname = #{inspectorname},
+           chkstate = #{chkstate},
+           remark = #{remark},
+           makerid = #{makerid},
+           makername = #{makername},
+           maketime = #{maketime},
+           auditorid = #{auditorid},
+           auditorname = #{auditorname},
+           firstchktime = #{firstchktime},
+           adjsubmittime = #{adjsubmittime},
+           rptfilename = #{rptfilename},
+           rptbeforestatus = #{rptbeforestatus},
+           rptstatus = #{rptstatus},
+           isbuildmcdfile = #{isbuildmcdfile},
+           memberid = #{memberid},
+           membername = #{membername},
+           totalintegral = #{totalintegral},
+           returntype = #{returntype},
+           idtype = #{idtype},
+           idnum = #{idnum},
+           ismoncode = #{ismoncode},
+           synctime = #{synctime},
+           substatus = #{substatus},
+           failreason = #{failreason},
+           corpid = #{corpid}
+        where id = #{id}
+    </update>
+    <delete id="deleteJxcTrdRtninmainById" parameterType="String">
+        delete from jxc_trd_rtninmain where id = #{id}
+    </delete>
+
+    <delete id="deleteJxcTrdRtninmainByIds" parameterType="String">
+        delete from jxc_trd_rtninmain where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+    <select id="selectJxcTrdRtninmainCount" parameterType="JxcTrdRtninmain" resultType="java.lang.Integer">
+        select count(1) from jxc_trd_rtninmain
+        <where>
+            <if test="rtnno != null  and rtnno != ''"> and rtnno = #{rtnno}</if>
+            <if test="rtntime != null "> and rtntime = #{rtntime}</if>
+            <if test="invoiceno != null  and invoiceno != ''"> and invoiceno = #{invoiceno}</if>
+            <if test="billfileno != null  and billfileno != ''"> and billfileno = #{billfileno}</if>
+            <if test="clientid != null "> and clientid = #{clientid}</if>
+            <if test="clientname != null  and clientname != ''">
+                AND clientname like concat(concat('%', #{clientname}), '%')
+            </if>
+            <if test="totalamt != null "> and totalamt = #{totalamt}</if>
+            <if test="smanid != null "> and smanid = #{smanid}</if>
+            <if test="smanname != null  and smanname != ''">
+                AND smanname like concat(concat('%', #{smanname}), '%')
+            </if>
+            <if test="operid != null "> and operid = #{operid}</if>
+            <if test="opername != null  and opername != ''">
+                AND opername like concat(concat('%', #{opername}), '%')
+            </if>
+            <if test="inspectorid != null "> and inspectorid = #{inspectorid}</if>
+            <if test="inspectorname != null  and inspectorname != ''">
+                AND inspectorname like concat(concat('%', #{inspectorname}), '%')
+            </if>
+            <if test="chkstate != null "> and chkstate = #{chkstate}</if>
+            <if test="makerid != null "> and makerid = #{makerid}</if>
+            <if test="makername != null  and makername != ''">
+                AND makername like concat(concat('%', #{makername}), '%')
+            </if>
+            <if test="maketime != null "> and maketime = #{maketime}</if>
+            <if test="auditorid != null "> and auditorid = #{auditorid}</if>
+            <if test="auditorname != null  and auditorname != ''">
+                AND auditorname like concat(concat('%', #{auditorname}), '%')
+            </if>
+            <if test="firstchktime != null "> and firstchktime = #{firstchktime}</if>
+            <if test="adjsubmittime != null "> and adjsubmittime = #{adjsubmittime}</if>
+            <if test="rptfilename != null  and rptfilename != ''">
+                AND rptfilename like concat(concat('%', #{rptfilename}), '%')
+            </if>
+            <if test="rptbeforestatus != null "> and rptbeforestatus = #{rptbeforestatus}</if>
+            <if test="rptstatus != null "> and rptstatus = #{rptstatus}</if>
+            <if test="isbuildmcdfile != null "> and isbuildmcdfile = #{isbuildmcdfile}</if>
+            <if test="memberid != null "> and memberid = #{memberid}</if>
+            <if test="membername != null  and membername != ''">
+                AND membername like concat(concat('%', #{membername}), '%')
+            </if>
+            <if test="totalintegral != null "> and totalintegral = #{totalintegral}</if>
+            <if test="returntype != null "> and returntype = #{returntype}</if>
+            <if test="idtype != null "> and idtype = #{idtype}</if>
+            <if test="idnum != null  and idnum != ''"> and idnum = #{idnum}</if>
+            <if test="ismoncode != null "> and ismoncode = #{ismoncode}</if>
+            <if test="synctime != null "> and synctime = #{synctime}</if>
+            <if test="substatus != null  and substatus != ''"> and substatus = #{substatus}</if>
+            <if test="failreason != null  and failreason != ''"> and failreason = #{failreason}</if>
+            <if test="corpid != null  and corpid != ''"> and corpid = #{corpid}</if>
+        </where>
+    </select>
+
+</mapper>
