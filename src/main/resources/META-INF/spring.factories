@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  xyz.lidaning.api.db.DbAutoConfiguration
+  xyz.lidaning.api.db.DBUtilsAutoConfiguration
