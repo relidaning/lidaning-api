@@ -3,7 +3,7 @@ package xyz.lidaning.api.common;
 import lombok.Data;
 
 @Data
-public class JsonResult {
+public class JsonResult{
 
     int code;
     String msg;
