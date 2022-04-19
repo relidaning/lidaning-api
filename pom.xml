@@ -10,7 +10,7 @@
     </parent>
     <groupId>xyz.lidaning</groupId>
     <artifactId>api</artifactId>
-    <version>0.0.6</version>
+    <version>1.0.0</version>
     <name>api</name>
     <description>a common api</description>
     <properties>
@@ -90,6 +90,13 @@
                         <directory>src/main/java</directory>
                         <includes>
                             <include>**/*.properties</include>
+                        </includes>
+                    </resource>
+                    <resource>
+                        <directory>src/main/resources</directory>
+                        <includes>
+                            <include>mapper/*.xml</include>
+                            <include>META-INF/spring.factories</include>
                         </includes>
                     </resource>
                 </resources>
