@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="xyz.lidaning.api.jxc.mapper.JxcTrdRtninmainMapper">
+<mapper namespace="xyz.lidaning.jxc.mapper.JxcTrdRtninmainMapper">
 
     <resultMap type="JxcTrdRtninmain" id="JxcTrdRtninmainResult">
         <result property="rtnno"    column="rtnno"    />
