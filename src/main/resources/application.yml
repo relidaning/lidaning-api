@@ -1,2 +1,5 @@
+server:
+  port: 80
+
 mybatis:
   type-aliases-package: xyz.lidaning.api
