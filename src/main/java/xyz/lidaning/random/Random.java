@@ -7,4 +7,8 @@ import java.lang.annotation.*;
 @Documented
 public @interface Random {
     String[] value() default "";
+
+    int[] integers() default 0;
+
+    String[] dates() default "";
 }

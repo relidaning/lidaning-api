@@ -6,6 +6,7 @@ import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
 
 @Slf4j
 public class RandomObject<T>{
@@ -21,20 +22,31 @@ public class RandomObject<T>{
         Field[] fields = t.getDeclaredFields();
         outer:
         for(Field f: fields){
-            Annotation[] annos = f.getAnnotations();
+            Annotation[] annos = f.getDeclaredAnnotations();
             inner:
             for(Annotation anno: annos){
                 if(anno instanceof Random){
                     try{
                         String setter="set"+f.getName().substring(0, 1).toUpperCase()+f.getName().substring(1);
                         Method set = o.getClass().getMethod(setter, f.getType());
-                        String[] values = ((Random) anno).value();
+
+                        Random ran = (Random) anno;
                         java.util.Random random=new java.util.Random();
-                        set.invoke(o, values[random.nextInt(values.length)]);
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        if(ran.value().length>0 && !ran.value()[0].equals("")){
+                            String[] values = ran.value();
+                            set.invoke(o, values[random.nextInt(values.length)]);
+                        }else if(ran.integers().length>1||(ran.integers().length==0&&ran.integers()[0]!=0)){
+                            int[] integers = ran.integers();
+                            set.invoke(o, integers[random.nextInt(integers.length)]);
+                        }else if(ran.dates().length>0 && !ran.dates().equals("")){
+                            String[] dateStrings = ran.dates();
+                            set.invoke(o, sdf.parse(dateStrings[random.nextInt(dateStrings.length)]));
+                        }
+
                     }catch (Exception e){
                         log.error(e.getMessage());
                     }
-                    break;
                 }
             }
         }
