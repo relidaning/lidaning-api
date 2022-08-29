@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
 
-@Configuration
 @ConditionalOnClass({DataSource.class})
 public class DBUtilsAutoConfiguration {
 
