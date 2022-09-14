@@ -2,8 +2,10 @@ package xyz.lidaning.common;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class JsonResult{
+public class JsonResult implements Serializable {
 
     int code;
     String msg;
