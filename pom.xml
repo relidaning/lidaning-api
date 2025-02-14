@@ -9,8 +9,8 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>xyz.lidaning</groupId>
-    <artifactId>api</artifactId>
-    <version>1.1.1</version>
+    <artifactId>lidnaing-api</artifactId>
+    <version>0.0.2</version>
     <name>api</name>
     <description>a common api</description>
     <properties>
@@ -85,7 +85,7 @@
     <distributionManagement>
         <repository>
             <id>github</id>
-            <name>GitHub OWNER Apache Maven Packages</name>
+            <name>GitHub relidaning Apache Maven Packages</name>
             <url>https://maven.pkg.github.com/relidaning/lidaning-api</url>
             <layout>default</layout>
         </repository>
