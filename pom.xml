@@ -10,7 +10,7 @@
     </parent>
     <groupId>xyz.lidaning</groupId>
     <artifactId>lidaning-api</artifactId>
-    <version>0.0.6</version>
+    <version>0.0.7</version>
     <name>lidaning-api</name>
     <description>a common api</description>
     <properties>
@@ -37,11 +37,11 @@
             <artifactId>mybatis</artifactId>
             <version>3.5.9</version>
         </dependency> -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
             <version>2.2.2</version>
-        </dependency>
+        </dependency> -->
 
         <!-- devtool -->
         <dependency>
