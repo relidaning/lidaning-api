@@ -24,9 +24,9 @@ public class ExpireUtil {
         noneOfThisBusinessBean.setDate(new Date());
         ExpireUtil.watch(expireBean);
 
-        Thread.sleep(1000*60*10);
+        Thread.sleep(1000*60*5);
         log.debug("expireBean: {}", expireBean);
-        log.debug("expireBean: {}", expireBean);
+        log.debug("expireBean: {}", noneOfThisBusinessBean);
 
     }
 
@@ -75,7 +75,7 @@ public class ExpireUtil {
 
 @Data
 class Demo{
-    @Expire(at="2025-02-21 22:48:00")
+    @Expire(at="2025-02-21 23:00:00")
     private Date date;
     @Expire(in=10, type=ExpireType.SECONDS)
     private String name;
