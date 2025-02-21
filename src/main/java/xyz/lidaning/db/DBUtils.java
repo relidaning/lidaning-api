@@ -1,14 +1,14 @@
 package xyz.lidaning.db;
 
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+// import org.springframework.jdbc.core.BeanPropertyRowMapper;
+// import org.springframework.jdbc.core.JdbcTemplate;
+// import org.springframework.jdbc.core.RowMapper;
 
 import java.util.List;
 import java.util.Map;
 
 public class DBUtils {
-    public DBUtils(JdbcTemplate jdbcTemplate){
+   /*  public DBUtils(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
 
@@ -29,5 +29,5 @@ public class DBUtils {
 
     public static void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         DBUtils.jdbcTemplate = jdbcTemplate;
-    }
+    } */
 }

@@ -13,6 +13,7 @@
     <version>0.0.7</version>
     <name>lidaning-api</name>
     <description>a common api</description>
+    <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
     </properties>
@@ -82,6 +83,10 @@
         </developer>
     </developers>
 
+    <build>
+	<finalName>app</finalName>
+    </build>
+    
     <distributionManagement>
         <repository>
             <id>github</id>
