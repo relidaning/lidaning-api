@@ -12,35 +12,36 @@ import java.text.SimpleDateFormat;
 public class RandomObjectUtil{
 
 
-    public static <T> T randomInstance(Class<T> t) throws IllegalAccessException, InstantiationException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
+    public static <T> T randomInstance(Class<T> t) throws Exception{
         T o = t.getDeclaredConstructor().newInstance();
         Field[] fields = t.getDeclaredFields();
-        outer:
+        java.util.Random random=new java.util.Random();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         for(Field f: fields){
+            String setter="set"+f.getName().substring(0, 1).toUpperCase()+f.getName().substring(1);
+            Method set = o.getClass().getMethod(setter, f.getType());
+
             Annotation[] annos = f.getDeclaredAnnotations();
-            inner:
+            Object value = null;
             for(Annotation anno: annos){
                 if(anno instanceof Random){
+                    Random ran = (Random) anno;
                     try{
-                        String setter="set"+f.getName().substring(0, 1).toUpperCase()+f.getName().substring(1);
-                        Method set = o.getClass().getMethod(setter, f.getType());
-
-                        Random ran = (Random) anno;
-                        java.util.Random random=new java.util.Random();
-                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                         if(ran.value().length>0 && !ran.value()[0].equals("")){
                             String[] values = ran.value();
-                            set.invoke(o, values[random.nextInt(values.length)]);
-                        }else if(ran.integers().length>1||(ran.integers().length==0&&ran.integers()[0]!=0)){
+                            value = values[random.nextInt(values.length)];
+                        }else if(ran.integers().length>1||(ran.integers().length==1&&ran.integers()[0]!=0)){
                             int[] integers = ran.integers();
-                            set.invoke(o, integers[random.nextInt(integers.length)]);
+                            value = integers[random.nextInt(integers.length)];
                         }else if(ran.dates().length>0 && !ran.dates().equals("")){
                             String[] dateStrings = ran.dates();
-                            set.invoke(o, sdf.parse(dateStrings[random.nextInt(dateStrings.length)]));
+                            value = sdf.parse(dateStrings[random.nextInt(dateStrings.length)]);
                         }
-
-                    }catch (Exception e){
-                        log.error(e.getMessage());
+                        set.invoke(o, value);
+                    } catch(IllegalArgumentException e){
+                        log.error("IllegalArgumentException, clazz: "+ o.getClass() +", field: "+f+", anno: "+ 
+                            anno +", value:" + value);
+                        throw e;
                     }
                 }
             }
@@ -48,7 +49,7 @@ public class RandomObjectUtil{
         return o;
     }
 
-    public static void main(String[] args) throws IllegalAccessException, InstantiationException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
+    public static void main(String[] args) throws Exception {
         Student random1 = RandomObjectUtil.randomInstance(Student.class);
         Student random2 = RandomObjectUtil.randomInstance(Student.class); 
         Student random3 = RandomObjectUtil.randomInstance(Student.class); 
